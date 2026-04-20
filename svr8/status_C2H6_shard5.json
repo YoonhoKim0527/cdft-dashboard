@@ -1,8 +1,8 @@
 {
   "adsorbate": "C2H6",
   "server": "svr8",
-  "last_update": "2026-04-20T14:23:30.076752+00:00",
-  "start_time": "2026-04-20T14:15:26.586183+00:00",
+  "last_update": "2026-04-20T14:57:53.073234+00:00",
+  "start_time": "2026-04-20T14:32:41.679126+00:00",
   "total_mofs": 10,
   "pressures": [
     0.1,
@@ -21,48 +21,48 @@
   "per_pressure": {
     "0.1": {
       "completed": 1,
-      "converged": 0,
-      "failed": 1
+      "converged": 1,
+      "failed": 0
     },
     "0.5": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "1": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "2": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "3": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "4": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "5": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "6": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "7": {
-      "completed": 0,
+      "completed": 1,
       "converged": 0,
-      "failed": 0
+      "failed": 1
     },
     "8": {
       "completed": 0,
@@ -81,7 +81,7 @@
     }
   },
   "current_mof": "qmof-0009829",
-  "current_pressure": 0.1,
+  "current_pressure": 7.0,
   "mof_set_info": {
     "shard_file": "/home/yoonho/exp037_solver/shards/c2h6_10.txt",
     "shard_index": "5",
