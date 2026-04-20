@@ -1,7 +1,7 @@
 {
   "adsorbate": "Kr",
   "server": "1b9c1701153b",
-  "last_update": "2026-04-20T21:26:19.685522+00:00",
+  "last_update": "2026-04-20T22:00:04.578456+00:00",
   "start_time": "2026-04-20T07:59:22.295914+00:00",
   "total_mofs": 579,
   "pressures": [
@@ -20,18 +20,18 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 169,
-      "converged": 168,
+      "completed": 170,
+      "converged": 169,
       "failed": 1
     },
     "0.5": {
-      "completed": 169,
-      "converged": 168,
+      "completed": 170,
+      "converged": 169,
       "failed": 1
     },
     "1": {
-      "completed": 169,
-      "converged": 168,
+      "completed": 170,
+      "converged": 169,
       "failed": 1
     },
     "2": {
@@ -45,43 +45,43 @@
       "failed": 4
     },
     "4": {
-      "completed": 168,
+      "completed": 169,
       "converged": 165,
-      "failed": 3
+      "failed": 4
     },
     "5": {
-      "completed": 168,
+      "completed": 169,
       "converged": 164,
-      "failed": 4
-    },
-    "6": {
-      "completed": 168,
-      "converged": 164,
-      "failed": 4
-    },
-    "7": {
-      "completed": 168,
-      "converged": 163,
       "failed": 5
     },
+    "6": {
+      "completed": 169,
+      "converged": 164,
+      "failed": 5
+    },
+    "7": {
+      "completed": 169,
+      "converged": 163,
+      "failed": 6
+    },
     "8": {
-      "completed": 168,
+      "completed": 169,
       "converged": 160,
-      "failed": 8
+      "failed": 9
     },
     "9": {
-      "completed": 168,
+      "completed": 169,
       "converged": 161,
-      "failed": 7
+      "failed": 8
     },
     "10": {
-      "completed": 168,
+      "completed": 169,
       "converged": 160,
-      "failed": 8
+      "failed": 9
     }
   },
-  "current_mof": "qmof-d689f74",
-  "current_pressure": 3.0,
+  "current_mof": "qmof-d68f170",
+  "current_pressure": 1.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Kr/shard_Kr_6.txt",
     "shard_index": "6",
