@@ -1,7 +1,7 @@
 {
   "adsorbate": "H2",
   "server": "svr4",
-  "last_update": "2026-04-20T07:50:32.651892+00:00",
+  "last_update": "2026-04-20T07:53:01.448289+00:00",
   "start_time": "2026-04-19T16:01:45.491004+00:00",
   "total_mofs": 1443,
   "pressures": [
@@ -38,48 +38,48 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 217,
-      "converged": 217,
+      "completed": 218,
+      "converged": 218,
       "failed": 0
     },
     "0.5": {
-      "completed": 217,
-      "converged": 217,
+      "completed": 218,
+      "converged": 218,
       "failed": 0
     },
     "1": {
-      "completed": 217,
-      "converged": 217,
+      "completed": 218,
+      "converged": 218,
       "failed": 0
     },
     "2": {
-      "completed": 217,
-      "converged": 216,
+      "completed": 218,
+      "converged": 217,
       "failed": 1
     },
     "3": {
-      "completed": 217,
-      "converged": 216,
+      "completed": 218,
+      "converged": 217,
       "failed": 1
     },
     "4": {
-      "completed": 217,
-      "converged": 216,
+      "completed": 218,
+      "converged": 217,
       "failed": 1
     },
     "5": {
-      "completed": 217,
-      "converged": 216,
+      "completed": 218,
+      "converged": 217,
       "failed": 1
     },
     "6": {
-      "completed": 217,
-      "converged": 216,
+      "completed": 218,
+      "converged": 217,
       "failed": 1
     },
     "7": {
-      "completed": 217,
-      "converged": 216,
+      "completed": 218,
+      "converged": 217,
       "failed": 1
     },
     "8": {
@@ -189,7 +189,7 @@
     }
   },
   "current_mof": "qmof-09230cc",
-  "current_pressure": 0.1,
+  "current_pressure": 7.0,
   "mof_set_info": {
     "shard_file": "/home/yoonho/exp036_multi_gas_work/shards/H2/shard_H2_0.txt",
     "shard_index": "4",
