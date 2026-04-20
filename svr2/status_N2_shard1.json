@@ -1,7 +1,7 @@
 {
   "adsorbate": "N2",
   "server": "svr2",
-  "last_update": "2026-04-20T07:59:37.981210+00:00",
+  "last_update": "2026-04-20T08:00:55.963942+00:00",
   "start_time": "2026-04-19T16:09:31.233919+00:00",
   "total_mofs": 1527,
   "pressures": [
@@ -25,54 +25,54 @@
       "failed": 11
     },
     "0.5": {
-      "completed": 260,
+      "completed": 261,
       "converged": 244,
-      "failed": 16
-    },
-    "1": {
-      "completed": 260,
-      "converged": 243,
       "failed": 17
     },
+    "1": {
+      "completed": 261,
+      "converged": 243,
+      "failed": 18
+    },
     "2": {
-      "completed": 260,
+      "completed": 261,
       "converged": 245,
-      "failed": 15
+      "failed": 16
     },
     "3": {
-      "completed": 260,
+      "completed": 261,
       "converged": 245,
-      "failed": 15
+      "failed": 16
     },
     "4": {
-      "completed": 260,
+      "completed": 261,
       "converged": 247,
-      "failed": 13
+      "failed": 14
     },
     "5": {
-      "completed": 260,
+      "completed": 261,
       "converged": 247,
-      "failed": 13
+      "failed": 14
     },
     "6": {
-      "completed": 260,
+      "completed": 261,
       "converged": 247,
-      "failed": 13
+      "failed": 14
     },
     "7": {
-      "completed": 260,
+      "completed": 261,
       "converged": 247,
-      "failed": 13
+      "failed": 14
     },
     "8": {
-      "completed": 260,
+      "completed": 261,
       "converged": 247,
-      "failed": 13
+      "failed": 14
     },
     "9": {
-      "completed": 260,
+      "completed": 261,
       "converged": 246,
-      "failed": 14
+      "failed": 15
     },
     "10": {
       "completed": 260,
@@ -81,7 +81,7 @@
     }
   },
   "current_mof": "qmof-62a9807",
-  "current_pressure": 0.1,
+  "current_pressure": 9.0,
   "mof_set_info": {
     "shard_file": "/home/yoonho/multi_gas_package/shards/N2/shard_N2_1.txt",
     "shard_index": "1",
