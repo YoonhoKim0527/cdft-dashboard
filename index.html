@@ -46,12 +46,96 @@
 const GASES  = ["H2","CH4","N2","C2H6","C3H8","CO2","Xe","Ar","Kr"];
 const SHARDS = [0,1,2,3,4,5,6,7];
 
+<<<<<<< Updated upstream
 async function tryFetch(url) {
   try {
     const r = await fetch(url + "?t=" + Date.now(), { cache: "no-store" });
     if (!r.ok) return null;
     return await r.json();
   } catch (e) { return null; }
+=======
+const shardCache = new Map();  // path -> { sha, data, name }
+let lastFetchAttempt = 0;
+let backoffUntil = 0;
+
+const DEFAULT_OWNER  = 'yoonhokim0527';
+const DEFAULT_REPO   = 'cdft-dashboard';
+const DEFAULT_BRANCH = 'main';
+
+// ---------- config ----------
+function readConfig() {
+  const hash = location.hash.replace(/^#/, '');
+  const params = new URLSearchParams(hash);
+  return {
+    owner:  params.get('owner')  || DEFAULT_OWNER,
+    repo:   params.get('repo')   || DEFAULT_REPO,
+    branch: params.get('branch') || DEFAULT_BRANCH,
+    token:  params.get('token')  || '',
+  };
+}
+function saveConfig() {
+  const owner  = document.getElementById('cfg-owner').value.trim()  || DEFAULT_OWNER;
+  const repo   = document.getElementById('cfg-repo').value.trim()   || DEFAULT_REPO;
+  const branch = document.getElementById('cfg-branch').value.trim() || DEFAULT_BRANCH;
+  const token  = document.getElementById('cfg-token').value.trim();
+  const parts = [`owner=${encodeURIComponent(owner)}`,
+                 `repo=${encodeURIComponent(repo)}`,
+                 `branch=${encodeURIComponent(branch)}`];
+  if (token) parts.push(`token=${encodeURIComponent(token)}`);
+  location.hash = parts.join('&');
+  shardCache.clear();
+  location.reload();
+}
+function toggleConfig() {
+  const panel = document.getElementById('config-panel');
+  panel.classList.toggle('open');
+  const cfg = readConfig();
+  document.getElementById('cfg-owner').value  = cfg.owner;
+  document.getElementById('cfg-repo').value   = cfg.repo;
+  document.getElementById('cfg-branch').value = cfg.branch;
+  document.getElementById('cfg-token').value  = cfg.token;
+}
+function showError(msg) {
+  document.getElementById('error-area').innerHTML = `<div class="error">${msg}</div>`;
+}
+function clearError() { document.getElementById('error-area').innerHTML = ''; }
+
+// ---------- GitHub endpoints ----------
+function ghHeaders(token) {
+  const h = { Accept: 'application/vnd.github+json' };
+  if (token) h['Authorization'] = `Bearer ${token}`;
+  return h;
+}
+
+async function listGitHubFiles(owner, repo, branch, token) {
+  const url = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`;
+  const res = await fetch(url, { headers: ghHeaders(token) });
+  if (res.status === 403 || res.status === 429) {
+    const reset = res.headers.get('X-RateLimit-Reset');
+    const wait  = reset ? Math.ceil((reset * 1000 - Date.now()) / 60000) : 10;
+    backoffUntil = Date.now() + Math.max(wait, 1) * 60 * 1000;
+    throw new Error(`GitHub rate-limited (HTTP ${res.status}). Backing off ${wait} min.`);
+  }
+  if (!res.ok) throw new Error(`GitHub tree fetch failed: ${res.status} ${await res.text()}`);
+  const data = await res.json();
+  if (data.truncated) console.warn('GitHub tree truncated — some files may be missing');
+  return (data.tree || [])
+    .filter(f => f.type === 'blob' &&
+                 /(?:^|\/)status_[A-Za-z0-9]+(?:_shard\d+)?\.json$/.test(f.path))
+    .map(f => ({ path: f.path, sha: f.sha, name: f.path.split('/').at(-1) }));
+}
+
+async function fetchGitHubContent(owner, repo, branch, path, token) {
+  const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${encodeURIComponent(path).replace(/%2F/g, '/')}`;
+  const res = await fetch(url, token ? { headers: { Authorization: `Bearer ${token}` } } : {});
+  if (!res.ok) throw new Error(`raw fetch ${path} failed: ${res.status}`);
+  const text = await res.text();
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    throw new Error(`JSON parse failed for ${path}: ${text.slice(0, 100)}`);
+  }
+>>>>>>> Stashed changes
 }
 
 async function discover(baseDir) {
