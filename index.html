@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>cDFT Label Generation — Dashboard</title>
+<style>
+  :root { color-scheme: dark; }
+  body { font: 13px/1.4 -apple-system, system-ui, Segoe UI, sans-serif;
+         margin: 16px; background: #0f1115; color: #e5e7eb; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .small { color: #9ca3af; font-size: 11px; }
+  .controls { margin: 6px 0 14px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  input { background: #1a1d26; border: 1px solid #2a2f3a; color: #e5e7eb;
+          padding: 4px 8px; border-radius: 4px; font: inherit; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 14px; }
+  .card { background: #1a1d26; border-radius: 8px; padding: 14px; border: 1px solid #2a2f3a; }
+  .card h2 { font-size: 15px; margin: 0 0 2px; display: flex; align-items: center; gap: 6px; }
+  .kv { display: flex; gap: 10px; flex-wrap: wrap; font-size: 11px; color: #9ca3af; margin: 4px 0; }
+  .bar { height: 8px; border-radius: 4px; background: #2a2f3a; overflow: hidden; margin: 6px 0 2px; }
+  .bar > div { height: 100%; background: linear-gradient(90deg,#60a5fa,#34d399); transition: width 0.4s; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(34px, 1fr)); gap: 2px; margin-top: 8px; }
+  .cell { height: 28px; border-radius: 3px; background: #2a2f3a; font-size: 9px; color: #f0f0f0;
+          display: flex; align-items: center; justify-content: center; cursor: help;
+          text-shadow: 0 0 2px #0006; }
+  .beat { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .beat.ok   { background: #4ade80; box-shadow: 0 0 6px #4ade80aa; }
+  .beat.warn { background: #facc15; }
+  .beat.dead { background: #ef4444; }
+  .err { color: #f87171; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>cDFT Label Generation</h1>
+<div class="controls">
+  <label>Status dir:
+    <input id="dir" value="." size="18" title="경로. HTML과 같은 폴더면 `.` 유지">
+  </label>
+  <label>Refresh:
+    <input id="period" type="number" value="5" min="1" max="120" size="3"> s
+  </label>
+  <span id="last" class="small"></span>
+</div>
+<div id="cards" class="cards"></div>
+<div id="err" class="err"></div>
+<script>
+const GASES  = ["H2","CH4","N2","C2H6","C3H8","CO2","Xe","Ar","Kr"];
+const SHARDS = [0,1,2,3,4,5,6,7];
+
+async function tryFetch(url) {
+  try {
+    const r = await fetch(url + "?t=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) return null;
+    return await r.json();
+  } catch (e) { return null; }
+}
+
+async function discover(baseDir) {
+  // 1) manifest.json has { "files": ["status_H2_shard0.json", ...] }
+  const m = await tryFetch(baseDir + "/manifest.json");
+  if (m && Array.isArray(m.files)) return m.files;
+  // 2) fallback: brute-force GASES x SHARDS
+  const names = [];
+  for (const g of GASES) for (const s of SHARDS) names.push(`status_${g}_shard${s}.json`);
+  return names;
+}
+
+async function loadAll(baseDir) {
+  const names = await discover(baseDir);
+  const res = await Promise.all(names.map(async n => {
+    const d = await tryFetch(baseDir + "/" + n);
+    return d ? { file: n, data: d } : null;
+  }));
+  return res.filter(Boolean);
+}
+
+function keyFor(p) {
+  // Match python's f"{p:.4g}"
+  const s = Number(p).toPrecision(4);
+  return parseFloat(s).toString();
+}
+
+function aggregate(entries) {
+  const byAds = {};
+  for (const { data } of entries) {
+    const a = data.adsorbate;
+    if (!byAds[a]) {
+      byAds[a] = {
+        adsorbate: a, shards: [], total_mofs: 0,
+        pressures: data.pressures.slice(),
+        per_pressure: {}, start_time: data.start_time,
+        last_update: data.last_update, servers: new Set(), currents: [],
+      };
+    }
+    const ag = byAds[a];
+    ag.shards.push(data);
+    ag.total_mofs += data.total_mofs;
+    ag.servers.add(data.server);
+    if (data.start_time && data.start_time < ag.start_time) ag.start_time = data.start_time;
+    if (data.last_update && data.last_update > ag.last_update) ag.last_update = data.last_update;
+    for (const [pk, c] of Object.entries(data.per_pressure)) {
+      if (!ag.per_pressure[pk]) ag.per_pressure[pk] = { completed:0, converged:0, failed:0 };
+      ag.per_pressure[pk].completed += c.completed|0;
+      ag.per_pressure[pk].converged += c.converged|0;
+      ag.per_pressure[pk].failed    += c.failed|0;
+    }
+    // merge pressure lists (union)
+    for (const p of data.pressures) if (!ag.pressures.includes(p)) ag.pressures.push(p);
+    if (data.current_mof) ag.currents.push({ mof: data.current_mof, p: data.current_pressure, server: data.server });
+  }
+  for (const ag of Object.values(byAds)) ag.pressures.sort((a,b) => a-b);
+  return Object.values(byAds);
+}
+
+function fmtETA(ag, totalCompleted) {
+  if (totalCompleted < 5) return "— (starting)";
+  const elapsed = Date.now() - new Date(ag.start_time).getTime();
+  const totalWork = ag.total_mofs * ag.pressures.length;
+  const rate = totalCompleted / elapsed;
+  const remaining = Math.max(0, totalWork - totalCompleted);
+  if (rate <= 0) return "—";
+  const etaMs = remaining / rate;
+  const h = Math.floor(etaMs/3600e3);
+  const m = Math.floor((etaMs%3600e3)/60e3);
+  return `${h}h${String(m).padStart(2,"0")}m`;
+}
+
+function heartbeat(iso) {
+  if (!iso) return "dead";
+  const dm = (Date.now() - new Date(iso).getTime()) / 60e3;
+  if (dm < 2) return "ok";
+  if (dm < 10) return "warn";
+  return "dead";
+}
+
+function renderCard(ag) {
+  let totCompleted = 0, totConverged = 0, totFailed = 0;
+  for (const c of Object.values(ag.per_pressure)) {
+    totCompleted += c.completed; totConverged += c.converged; totFailed += c.failed;
+  }
+  const totalWork = ag.total_mofs * ag.pressures.length;
+  const pct = totalWork > 0 ? (totCompleted/totalWork*100) : 0;
+  const convPct = totCompleted > 0 ? (totConverged/totCompleted*100).toFixed(1) : "—";
+  const bt = heartbeat(ag.last_update);
+  const servers = [...ag.servers].join(", ");
+  const cellsHTML = ag.pressures.map(p => {
+    const k = keyFor(p);
+    const c = ag.per_pressure[k] || { completed:0, converged:0, failed:0 };
+    const fill = ag.total_mofs > 0 ? (c.completed/ag.total_mofs) : 0;
+    const conv = c.completed > 0 ? (c.converged/c.completed) : 0;
+    const hue = Math.round(120 * conv);
+    const alpha = Math.max(0.15, Math.min(1, fill + 0.15));
+    const bg = `hsla(${hue}, 70%, 45%, ${alpha})`;
+    const title = `p=${p} bar\n${c.completed}/${ag.total_mofs} MOFs\nconverged ${c.converged}, failed ${c.failed}`;
+    return `<div class="cell" style="background:${bg}" title="${title}">${p}</div>`;
+  }).join("");
+  const currents = ag.currents.slice(0, 6)
+    .map(cu => `${cu.server}:${cu.mof}@${cu.p}`).join(" · ");
+  return `<div class="card">
+    <h2><span class="beat ${bt}" title="${ag.last_update}"></span>${ag.adsorbate}
+        <span class="small">(${ag.shards.length} shard · ${servers})</span></h2>
+    <div class="kv">
+      <span>${totCompleted}/${totalWork} steps</span>
+      <span>Conv ${convPct}%</span>
+      <span>Failed ${totFailed}</span>
+      <span>ETA ${fmtETA(ag, totCompleted)}</span>
+    </div>
+    <div class="bar"><div style="width:${pct}%"></div></div>
+    <div class="small">${pct.toFixed(1)}% · ${ag.total_mofs} MOFs/shard · started ${new Date(ag.start_time).toLocaleString()} · last ${new Date(ag.last_update).toLocaleTimeString()}</div>
+    <div class="grid">${cellsHTML}</div>
+    <div class="small" style="margin-top:6px">${currents || "—"}</div>
+  </div>`;
+}
+
+async function refresh() {
+  const dir = (document.getElementById("dir").value || ".").replace(/\/+$/, "");
+  try {
+    const entries = await loadAll(dir);
+    const aggs = aggregate(entries).sort((a,b) => a.adsorbate.localeCompare(b.adsorbate));
+    document.getElementById("cards").innerHTML = aggs.map(renderCard).join("") ||
+      `<div class="small">No status files found in <code>${dir}</code>. Expecting <code>status_&lt;GAS&gt;_shard&lt;i&gt;.json</code>.</div>`;
+    document.getElementById("last").textContent =
+      `${entries.length} file(s) · ${new Date().toLocaleTimeString()}`;
+    document.getElementById("err").textContent = "";
+  } catch (e) {
+    document.getElementById("err").textContent = "Error: " + e.message;
+  }
+}
+
+let timer;
+function startTimer() {
+  if (timer) clearInterval(timer);
+  const s = Math.max(1, parseInt(document.getElementById("period").value)) * 1000;
+  timer = setInterval(refresh, s);
+}
+document.getElementById("period").addEventListener("change", startTimer);
+document.getElementById("dir").addEventListener("change", refresh);
+refresh();
+startTimer();
+</script>
+</body>
+</html>
