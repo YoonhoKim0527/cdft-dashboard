@@ -1,0 +1,90 @@
+{
+  "adsorbate": "CO2",
+  "server": "fe1e32d71454",
+  "last_update": "2026-04-20T08:58:46.749207+00:00",
+  "start_time": "2026-04-20T08:46:41.219087+00:00",
+  "total_mofs": 636,
+  "pressures": [
+    0.1,
+    0.5,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0
+  ],
+  "per_pressure": {
+    "0.1": {
+      "completed": 2,
+      "converged": 2,
+      "failed": 0
+    },
+    "0.5": {
+      "completed": 2,
+      "converged": 2,
+      "failed": 0
+    },
+    "1": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "2": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "3": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "4": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "5": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "6": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "7": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "8": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "9": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "10": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    }
+  },
+  "current_mof": "qmof-517524d",
+  "current_pressure": 0.5,
+  "mof_set_info": {
+    "shard_file": "/workspace/shards/CO2/shard_CO2_3.txt",
+    "shard_index": "3",
+    "n_mofs": 636
+  }
+}
