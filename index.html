@@ -262,11 +262,15 @@
   <label>Google Drive folder ID
     <input type="text" id="cfg-folder" placeholder="1aBc2dEf3GhIjKl...">
   </label>
-  <label>Google Drive API key
+  <label>Google Drive API key (only needed for listing the folder)
     <input type="text" id="cfg-apikey" placeholder="AIzaSy...">
   </label>
   <button class="btn" onclick="saveConfig()">save &amp; reload</button>
-  <p class="meta" style="margin-top:8px">Saved in URL hash — bookmark the page to preserve config across devices.</p>
+  <p class="meta" style="margin-top:8px">
+    Saved in URL hash — bookmark the page to preserve config.<br>
+    File contents are fetched from the public <code>drive.google.com/uc</code> endpoint (no CORS issues),
+    so the API key is only used for listing.
+  </p>
 </div>
 
 <div id="error-area"></div>
@@ -284,13 +288,11 @@
 
 <script>
 const ADSORBATES = ['H2', 'CH4', 'N2', 'C2H6', 'C3H8', 'CO2', 'Xe', 'Ar', 'Kr'];
-const LIVE_THRESHOLD = 180;    // 3 min
-const STALE_THRESHOLD = 3600;  // 1 hr
+const LIVE_THRESHOLD = 180;
+const STALE_THRESHOLD = 3600;
 const COMMON_MAX = 10;
 
-// ---------- in-memory cache ----------
-// fileId -> { modifiedTime, data }
-const shardCache = new Map();
+const shardCache = new Map();  // fileId -> { modifiedTime, data }
 let lastFetchAttempt = 0;
 let backoffUntil = 0;
 
@@ -322,43 +324,40 @@ function showError(msg) {
 }
 function clearError() { document.getElementById('error-area').innerHTML = ''; }
 
-// ---------- gdrive fetch with backoff ----------
+// ---------- drive endpoints ----------
+// list is CORS-friendly and needs the API key
 async function listDriveFiles(folderId, apiKey) {
   const q = encodeURIComponent(`'${folderId}' in parents and trashed=false`);
   const url = `https://www.googleapis.com/drive/v3/files?q=${q}&fields=files(id,name,modifiedTime)&pageSize=1000&key=${apiKey}`;
   const res = await fetch(url);
   if (res.status === 429 || res.status === 403) {
-    backoffUntil = Date.now() + 10 * 60 * 1000; // 10 min penalty
-    throw new Error(`Rate-limited (HTTP ${res.status}). Backing off 10 min. Consider increasing refresh interval.`);
+    backoffUntil = Date.now() + 10 * 60 * 1000;
+    throw new Error(`Rate-limited on list (HTTP ${res.status}). Backing off 10 min.`);
   }
   if (!res.ok) throw new Error(`Drive list failed: ${res.status} ${await res.text()}`);
   const data = await res.json();
   return data.files || [];
 }
 
-async function fetchDriveJSON(fileId, apiKey) {
-  const url = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${apiKey}`;
+// Fetch file content via the public "uc" endpoint.
+// This endpoint serves CORS headers for "anyone with link" files and does
+// NOT require an API key. It's the same URL the Drive web UI uses for
+// direct downloads of shared files.
+async function fetchDriveContent(fileId) {
+  const url = `https://drive.google.com/uc?export=download&id=${fileId}`;
   const res = await fetch(url);
-  if (res.status === 429 || res.status === 403) {
-    backoffUntil = Date.now() + 10 * 60 * 1000;
-    throw new Error(`Rate-limited on file fetch (HTTP ${res.status}).`);
+  if (!res.ok) throw new Error(`uc fetch ${fileId} failed: ${res.status}`);
+  const text = await res.text();
+  // Small files come back as raw JSON. Large files (>100MB) redirect to an
+  // HTML confirm page, but status JSONs are all <10KB so we're safe.
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    throw new Error(`JSON parse failed for ${fileId}: ${text.slice(0, 100)}`);
   }
-  if (!res.ok) throw new Error(`Fetch ${fileId} failed: ${res.status}`);
-  return await res.json();
 }
 
 // ---------- shard grouping ----------
-function groupFilesByAdsorbate(files) {
-  const byAds = {};
-  for (const f of files) {
-    const m = f.name.match(/^status_([A-Za-z0-9]+)(?:_shard\d+)?\.json$/);
-    if (!m) continue;
-    const ads = m[1];
-    (byAds[ads] ||= []).push(f);
-  }
-  return byAds;
-}
-
 function pkey(p) {
   const n = parseFloat(p);
   return parseFloat(n.toPrecision(4)).toString();
@@ -583,11 +582,11 @@ function renderSummary(allData) {
     </div>`;
 }
 
-// ---------- core refresh with incremental fetch ----------
+// ---------- main refresh ----------
 async function refresh() {
   if (Date.now() < backoffUntil) {
     const left = Math.ceil((backoffUntil - Date.now()) / 60000);
-    showError(`Backing off due to rate limit. Retrying in ${left} min.\n(You can still press "refresh now" to force, but it'll likely fail.)`);
+    showError(`Backing off due to rate limit. Retrying in ${left} min.`);
     return;
   }
   const cfg = readConfig();
@@ -599,44 +598,43 @@ async function refresh() {
   try {
     lastFetchAttempt = Date.now();
     const files = await listDriveFiles(cfg.folderId, cfg.apiKey);
+    const statusFiles = files.filter(f => /^status_[A-Za-z0-9]+(?:_shard\d+)?\.json$/.test(f.name));
 
     // Incremental: only fetch shards whose modifiedTime changed
     const toFetch = [];
     const currentIds = new Set();
-    for (const f of files) {
+    for (const f of statusFiles) {
       currentIds.add(f.id);
       const cached = shardCache.get(f.id);
       if (!cached || cached.modifiedTime !== f.modifiedTime) {
         toFetch.push(f);
       }
     }
-    // Drop stale cache entries for deleted files
     for (const id of [...shardCache.keys()]) {
       if (!currentIds.has(id)) shardCache.delete(id);
     }
 
-    // Fetch changed files in parallel (one promise per file)
     const fetchResults = await Promise.all(toFetch.map(async f => {
       try {
-        const data = await fetchDriveJSON(f.id, cfg.apiKey);
+        const data = await fetchDriveContent(f.id);
         shardCache.set(f.id, { modifiedTime: f.modifiedTime, data, name: f.name });
-        return { ok: true, file: f };
+        return { ok: true };
       } catch (e) {
-        return { ok: false, file: f, error: e };
+        console.error(`Failed to fetch ${f.name}:`, e);
+        return { ok: false, error: e };
       }
     }));
     const fetchedOk = fetchResults.filter(r => r.ok).length;
     const fetchedFail = fetchResults.length - fetchedOk;
 
-    // Group all cached shards by adsorbate
+    // Group cached shards by adsorbate
     const byAds = {};
-    for (const f of files) {
+    for (const f of statusFiles) {
       const entry = shardCache.get(f.id);
       if (!entry) continue;
       const m = f.name.match(/^status_([A-Za-z0-9]+)(?:_shard\d+)?\.json$/);
       if (!m) continue;
-      const ads = m[1];
-      (byAds[ads] ||= []).push(entry.data);
+      (byAds[m[1]] ||= []).push(entry.data);
     }
     const results = ADSORBATES.map(ads => {
       const shards = byAds[ads];
@@ -649,15 +647,15 @@ async function refresh() {
       ADSORBATES.map((a, i) => renderCard(a, results[i])).join('');
     document.getElementById('summary').innerHTML = renderSummary(results);
     document.getElementById('last-refresh').textContent =
-      `refreshed ${new Date().toLocaleTimeString('sv', {timeZone:'Asia/Seoul'})} KST · ${files.length} files seen · ${fetchedOk} fetched${fetchedFail ? ` · ${fetchedFail} fail` : ''} · ${shardCache.size} cached`;
+      `refreshed ${new Date().toLocaleTimeString('sv', {timeZone:'Asia/Seoul'})} KST · ${statusFiles.length} files · ${fetchedOk} fetched${fetchedFail ? ` · ${fetchedFail} fail` : ''} · ${shardCache.size} cached`;
   } catch (e) {
-    showError(`Error: ${e.message}\n\nChecks:\n• Folder shared as "Anyone with link → Viewer"\n• API key has Google Drive API enabled\n• HTTP referrer restriction allows this URL`);
+    showError(`Error: ${e.message}\n\nChecks:\n• Folder shared as "Anyone with link → Viewer"\n• API key has Google Drive API enabled\n• Each status file inherits the folder's public sharing`);
     console.error(e);
   }
 }
 
 function manualRefresh() {
-  backoffUntil = 0; // user override
+  backoffUntil = 0;
   refresh();
 }
 
@@ -668,15 +666,12 @@ function setupTimer() {
   const interval = parseInt(document.getElementById('refresh-interval').value, 10);
   if (interval > 0) {
     timer = setInterval(() => {
-      // skip if tab is hidden (saves quota)
       if (!document.hidden) refresh();
     }, interval);
   }
 }
 document.getElementById('refresh-interval').addEventListener('change', setupTimer);
 window.addEventListener('hashchange', () => { shardCache.clear(); refresh(); });
-
-// Refresh when tab comes back after long absence
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden) {
     const idle = Date.now() - lastFetchAttempt;
