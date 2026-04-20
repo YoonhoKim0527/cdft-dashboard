@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "xe-server",
-  "last_update": "2026-04-20T14:28:45.392335+00:00",
+  "last_update": "2026-04-20T14:59:56.220477+00:00",
   "start_time": "2026-04-20T09:41:21.913027+00:00",
   "total_mofs": 518,
   "pressures": [
@@ -20,44 +20,44 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 12,
-      "converged": 11,
+      "completed": 13,
+      "converged": 12,
       "failed": 1
     },
     "0.5": {
-      "completed": 12,
-      "converged": 9,
+      "completed": 13,
+      "converged": 10,
       "failed": 3
     },
     "1": {
-      "completed": 12,
-      "converged": 7,
+      "completed": 13,
+      "converged": 8,
       "failed": 5
     },
     "2": {
-      "completed": 12,
-      "converged": 7,
+      "completed": 13,
+      "converged": 8,
       "failed": 5
     },
     "3": {
-      "completed": 12,
+      "completed": 13,
       "converged": 6,
-      "failed": 6
+      "failed": 7
     },
     "4": {
-      "completed": 12,
+      "completed": 13,
       "converged": 6,
-      "failed": 6
+      "failed": 7
     },
     "5": {
-      "completed": 12,
+      "completed": 13,
       "converged": 5,
-      "failed": 7
+      "failed": 8
     },
     "6": {
-      "completed": 12,
+      "completed": 13,
       "converged": 5,
-      "failed": 7
+      "failed": 8
     },
     "7": {
       "completed": 12,
@@ -65,23 +65,23 @@
       "failed": 8
     },
     "8": {
-      "completed": 11,
+      "completed": 12,
       "converged": 4,
-      "failed": 7
+      "failed": 8
     },
     "9": {
-      "completed": 11,
+      "completed": 12,
       "converged": 4,
-      "failed": 7
+      "failed": 8
     },
     "10": {
-      "completed": 11,
+      "completed": 12,
       "converged": 3,
-      "failed": 8
+      "failed": 9
     }
   },
-  "current_mof": "qmof-c22cc4b",
-  "current_pressure": 7.0,
+  "current_mof": "qmof-c22ea94",
+  "current_pressure": 6.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe/shard_Xe_6.txt",
     "shard_index": "6",
