@@ -1,8 +1,8 @@
 {
   "adsorbate": "CO2",
   "server": "svr8",
-  "last_update": "2026-04-20T15:59:49.183541+00:00",
-  "start_time": "2026-04-20T15:25:21.070999+00:00",
+  "last_update": "2026-04-20T16:28:36.998481+00:00",
+  "start_time": "2026-04-20T16:07:23.040396+00:00",
   "total_mofs": 10,
   "pressures": [
     0.1,
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 4,
-      "converged": 4,
+      "completed": 3,
+      "converged": 3,
       "failed": 0
     },
     "0.5": {
-      "completed": 4,
-      "converged": 4,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "1": {
-      "completed": 3,
-      "converged": 3,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "2": {
-      "completed": 3,
-      "converged": 3,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "3": {
-      "completed": 3,
-      "converged": 3,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "4": {
-      "completed": 3,
-      "converged": 3,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "5": {
-      "completed": 3,
-      "converged": 3,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "6": {
-      "completed": 3,
-      "converged": 3,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "7": {
-      "completed": 3,
-      "converged": 3,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "8": {
-      "completed": 3,
-      "converged": 3,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "9": {
-      "completed": 3,
-      "converged": 3,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "10": {
-      "completed": 3,
-      "converged": 3,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     }
   },
-  "current_mof": "qmof-6c434d5",
-  "current_pressure": 0.5,
+  "current_mof": "qmof-56a3cc3",
+  "current_pressure": 0.1,
   "mof_set_info": {
     "shard_file": "/home/yoonho/exp037_solver/shards/co2_10.txt",
     "shard_index": "7",
