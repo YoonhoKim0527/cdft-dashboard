@@ -1,7 +1,7 @@
 {
   "adsorbate": "CH4",
   "server": "svr8",
-  "last_update": "2026-04-20T08:01:51.925376+00:00",
+  "last_update": "2026-04-20T08:03:00.808891+00:00",
   "start_time": "2026-04-19T16:17:24.819642+00:00",
   "total_mofs": 1089,
   "pressures": [
@@ -32,13 +32,13 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 22,
-      "converged": 22,
+      "completed": 23,
+      "converged": 23,
       "failed": 0
     },
     "0.5": {
-      "completed": 22,
-      "converged": 22,
+      "completed": 23,
+      "converged": 23,
       "failed": 0
     },
     "1": {
@@ -153,7 +153,7 @@
     }
   },
   "current_mof": "qmof-3eb70fd",
-  "current_pressure": 0.1,
+  "current_pressure": 0.5,
   "mof_set_info": {
     "shard_file": "/home/yoonho/shards/CH4/shard_CH4_1.txt",
     "shard_index": "5",
