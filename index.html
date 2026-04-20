@@ -218,6 +218,12 @@
     color: var(--muted);
     text-transform: uppercase;
   }
+  .config-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
   .error {
     background: rgba(248,113,113,0.1);
     border: 1px solid var(--danger);
@@ -259,17 +265,25 @@
 </div>
 
 <div class="config-panel" id="config-panel">
-  <label>Google Drive folder ID
-    <input type="text" id="cfg-folder" placeholder="1aBc2dEf3GhIjKl...">
-  </label>
-  <label>Google Drive API key (only needed for listing the folder)
-    <input type="text" id="cfg-apikey" placeholder="AIzaSy...">
+  <div class="config-row">
+    <label>GitHub owner
+      <input type="text" id="cfg-owner" placeholder="yoonhokim0527">
+    </label>
+    <label>Repository
+      <input type="text" id="cfg-repo" placeholder="cdft-dashboard">
+    </label>
+    <label>Branch
+      <input type="text" id="cfg-branch" placeholder="main">
+    </label>
+  </div>
+  <label>GitHub token (optional — raises rate limit from 60 to 5000 req/hr)
+    <input type="text" id="cfg-token" placeholder="ghp_...">
   </label>
   <button class="btn" onclick="saveConfig()">save &amp; reload</button>
   <p class="meta" style="margin-top:8px">
     Saved in URL hash — bookmark the page to preserve config.<br>
-    File contents are fetched from the public <code>drive.google.com/uc</code> endpoint (no CORS issues),
-    so the API key is only used for listing.
+    Status JSON files are fetched directly from <code>raw.githubusercontent.com</code> (no CORS issues).<br>
+    GitHub API is used only for listing files (60 req/hr unauthenticated, 5000 with token).
   </p>
 </div>
 
