@@ -1,7 +1,7 @@
 {
   "adsorbate": "CO2",
   "server": "fe1e32d71454",
-  "last_update": "2026-04-20T09:59:31.873770+00:00",
+  "last_update": "2026-04-20T10:29:44.439055+00:00",
   "start_time": "2026-04-20T08:46:41.247535+00:00",
   "total_mofs": 636,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 10,
-      "converged": 8,
+      "completed": 13,
+      "converged": 11,
       "failed": 2
     },
     "0.5": {
-      "completed": 10,
-      "converged": 8,
+      "completed": 13,
+      "converged": 11,
       "failed": 2
     },
     "1": {
-      "completed": 9,
-      "converged": 8,
+      "completed": 13,
+      "converged": 12,
       "failed": 1
     },
     "2": {
-      "completed": 9,
-      "converged": 8,
+      "completed": 13,
+      "converged": 12,
       "failed": 1
     },
     "3": {
-      "completed": 9,
-      "converged": 8,
+      "completed": 13,
+      "converged": 12,
       "failed": 1
     },
     "4": {
-      "completed": 9,
-      "converged": 8,
+      "completed": 12,
+      "converged": 11,
       "failed": 1
     },
     "5": {
-      "completed": 9,
-      "converged": 8,
+      "completed": 12,
+      "converged": 11,
       "failed": 1
     },
     "6": {
-      "completed": 9,
-      "converged": 8,
+      "completed": 12,
+      "converged": 11,
       "failed": 1
     },
     "7": {
-      "completed": 9,
-      "converged": 8,
+      "completed": 12,
+      "converged": 11,
       "failed": 1
     },
     "8": {
-      "completed": 9,
-      "converged": 8,
+      "completed": 12,
+      "converged": 11,
       "failed": 1
     },
     "9": {
-      "completed": 9,
-      "converged": 8,
+      "completed": 12,
+      "converged": 11,
       "failed": 1
     },
     "10": {
-      "completed": 9,
-      "converged": 8,
+      "completed": 12,
+      "converged": 11,
       "failed": 1
     }
   },
-  "current_mof": "qmof-bb28adc",
-  "current_pressure": 0.5,
+  "current_mof": "qmof-ec8a9b7",
+  "current_pressure": 3.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/CO2/shard_CO2_6.txt",
     "shard_index": "6",
