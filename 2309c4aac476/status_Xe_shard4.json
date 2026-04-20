@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "xe-server",
-  "last_update": "2026-04-20T14:59:39.305836+00:00",
+  "last_update": "2026-04-20T15:28:42.998045+00:00",
   "start_time": "2026-04-20T09:41:21.929260+00:00",
   "total_mofs": 518,
   "pressures": [
@@ -20,29 +20,29 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 23,
-      "converged": 21,
+      "completed": 24,
+      "converged": 22,
       "failed": 2
     },
     "0.5": {
-      "completed": 23,
-      "converged": 21,
+      "completed": 24,
+      "converged": 22,
       "failed": 2
     },
     "1": {
-      "completed": 23,
+      "completed": 24,
       "converged": 21,
-      "failed": 2
+      "failed": 3
     },
     "2": {
-      "completed": 23,
+      "completed": 24,
       "converged": 18,
-      "failed": 5
+      "failed": 6
     },
     "3": {
-      "completed": 23,
+      "completed": 24,
       "converged": 17,
-      "failed": 6
+      "failed": 7
     },
     "4": {
       "completed": 23,
@@ -55,33 +55,33 @@
       "failed": 6
     },
     "6": {
-      "completed": 22,
+      "completed": 23,
       "converged": 17,
-      "failed": 5
-    },
-    "7": {
-      "completed": 22,
-      "converged": 17,
-      "failed": 5
-    },
-    "8": {
-      "completed": 22,
-      "converged": 15,
-      "failed": 7
-    },
-    "9": {
-      "completed": 22,
-      "converged": 16,
       "failed": 6
     },
-    "10": {
-      "completed": 22,
+    "7": {
+      "completed": 23,
+      "converged": 17,
+      "failed": 6
+    },
+    "8": {
+      "completed": 23,
       "converged": 15,
+      "failed": 8
+    },
+    "9": {
+      "completed": 23,
+      "converged": 16,
       "failed": 7
+    },
+    "10": {
+      "completed": 23,
+      "converged": 15,
+      "failed": 8
     }
   },
-  "current_mof": "qmof-820eea9",
-  "current_pressure": 5.0,
+  "current_mof": "qmof-82276a2",
+  "current_pressure": 3.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe/shard_Xe_4.txt",
     "shard_index": "4",
