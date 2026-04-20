@@ -1,7 +1,7 @@
 {
   "adsorbate": "H2",
   "server": "svr4",
-  "last_update": "2026-04-20T08:03:09.173829+00:00",
+  "last_update": "2026-04-20T08:05:00.019263+00:00",
   "start_time": "2026-04-19T16:01:45.475007+00:00",
   "total_mofs": 1443,
   "pressures": [
@@ -38,23 +38,23 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 214,
-      "converged": 214,
+      "completed": 215,
+      "converged": 215,
       "failed": 0
     },
     "0.5": {
-      "completed": 214,
-      "converged": 214,
+      "completed": 215,
+      "converged": 215,
       "failed": 0
     },
     "1": {
-      "completed": 214,
-      "converged": 214,
+      "completed": 215,
+      "converged": 215,
       "failed": 0
     },
     "2": {
-      "completed": 214,
-      "converged": 214,
+      "completed": 215,
+      "converged": 215,
       "failed": 0
     },
     "3": {
@@ -189,7 +189,7 @@
     }
   },
   "current_mof": "qmof-47a6fdf",
-  "current_pressure": 0.1,
+  "current_pressure": 2.0,
   "mof_set_info": {
     "shard_file": "/home/yoonho/exp036_multi_gas_work/shards/H2/shard_H2_1.txt",
     "shard_index": "5",
