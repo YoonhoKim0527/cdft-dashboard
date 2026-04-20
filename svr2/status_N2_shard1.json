@@ -1,7 +1,7 @@
 {
   "adsorbate": "N2",
   "server": "svr2",
-  "last_update": "2026-04-20T07:55:28.807167+00:00",
+  "last_update": "2026-04-20T07:56:41.620489+00:00",
   "start_time": "2026-04-19T16:09:31.233919+00:00",
   "total_mofs": 1527,
   "pressures": [
@@ -20,13 +20,13 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 259,
-      "converged": 248,
+      "completed": 260,
+      "converged": 249,
       "failed": 11
     },
     "0.5": {
-      "completed": 259,
-      "converged": 243,
+      "completed": 260,
+      "converged": 244,
       "failed": 16
     },
     "1": {
@@ -81,7 +81,7 @@
     }
   },
   "current_mof": "qmof-628d416",
-  "current_pressure": 0.1,
+  "current_pressure": 0.5,
   "mof_set_info": {
     "shard_file": "/home/yoonho/multi_gas_package/shards/N2/shard_N2_1.txt",
     "shard_index": "1",
