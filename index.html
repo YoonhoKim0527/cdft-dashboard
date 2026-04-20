@@ -243,21 +243,30 @@
     <div class="meta" id="last-refresh">—</div>
   </div>
   <div class="controls">
-    <label class="meta"><input type="checkbox" id="auto-refresh" checked> auto 30s</label>
-    <button class="btn" onclick="refresh()">refresh</button>
+    <label class="meta">
+      refresh every
+      <select id="refresh-interval" class="btn" style="margin:0 4px">
+        <option value="300000">5 min</option>
+        <option value="600000">10 min</option>
+        <option value="1800000" selected>30 min</option>
+        <option value="3600000">1 hr</option>
+        <option value="0">manual only</option>
+      </select>
+    </label>
+    <button class="btn" onclick="manualRefresh()">refresh now</button>
     <button class="btn" onclick="toggleConfig()">⚙ config</button>
   </div>
 </div>
 
 <div class="config-panel" id="config-panel">
-  <label>Google Drive folder ID (the folder containing status_*.json files)
+  <label>Google Drive folder ID
     <input type="text" id="cfg-folder" placeholder="1aBc2dEf3GhIjKl...">
   </label>
   <label>Google Drive API key
     <input type="text" id="cfg-apikey" placeholder="AIzaSy...">
   </label>
   <button class="btn" onclick="saveConfig()">save &amp; reload</button>
-  <p class="meta" style="margin-top:8px">Config is stored in the URL hash so you can bookmark it.</p>
+  <p class="meta" style="margin-top:8px">Saved in URL hash — bookmark the page to preserve config across devices.</p>
 </div>
 
 <div id="error-area"></div>
@@ -275,11 +284,17 @@
 
 <script>
 const ADSORBATES = ['H2', 'CH4', 'N2', 'C2H6', 'C3H8', 'CO2', 'Xe', 'Ar', 'Kr'];
-const LIVE_THRESHOLD = 120;
-const STALE_THRESHOLD = 600;
+const LIVE_THRESHOLD = 180;    // 3 min
+const STALE_THRESHOLD = 3600;  // 1 hr
 const COMMON_MAX = 10;
 
-// ---------- config (folder id + api key from URL hash) ----------
+// ---------- in-memory cache ----------
+// fileId -> { modifiedTime, data }
+const shardCache = new Map();
+let lastFetchAttempt = 0;
+let backoffUntil = 0;
+
+// ---------- config ----------
 function readConfig() {
   const hash = location.hash.replace(/^#/, '');
   const params = new URLSearchParams(hash);
@@ -292,6 +307,7 @@ function saveConfig() {
   const folder = document.getElementById('cfg-folder').value.trim();
   const key    = document.getElementById('cfg-apikey').value.trim();
   location.hash = `folder=${encodeURIComponent(folder)}&key=${encodeURIComponent(key)}`;
+  shardCache.clear();
   location.reload();
 }
 function toggleConfig() {
@@ -306,11 +322,15 @@ function showError(msg) {
 }
 function clearError() { document.getElementById('error-area').innerHTML = ''; }
 
-// ---------- gdrive fetch ----------
+// ---------- gdrive fetch with backoff ----------
 async function listDriveFiles(folderId, apiKey) {
   const q = encodeURIComponent(`'${folderId}' in parents and trashed=false`);
   const url = `https://www.googleapis.com/drive/v3/files?q=${q}&fields=files(id,name,modifiedTime)&pageSize=1000&key=${apiKey}`;
   const res = await fetch(url);
+  if (res.status === 429 || res.status === 403) {
+    backoffUntil = Date.now() + 10 * 60 * 1000; // 10 min penalty
+    throw new Error(`Rate-limited (HTTP ${res.status}). Backing off 10 min. Consider increasing refresh interval.`);
+  }
   if (!res.ok) throw new Error(`Drive list failed: ${res.status} ${await res.text()}`);
   const data = await res.json();
   return data.files || [];
@@ -319,12 +339,15 @@ async function listDriveFiles(folderId, apiKey) {
 async function fetchDriveJSON(fileId, apiKey) {
   const url = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${apiKey}`;
   const res = await fetch(url);
+  if (res.status === 429 || res.status === 403) {
+    backoffUntil = Date.now() + 10 * 60 * 1000;
+    throw new Error(`Rate-limited on file fetch (HTTP ${res.status}).`);
+  }
   if (!res.ok) throw new Error(`Fetch ${fileId} failed: ${res.status}`);
   return await res.json();
 }
 
 // ---------- shard grouping ----------
-// status_<Adsorbate>(_shardN)?.json
 function groupFilesByAdsorbate(files) {
   const byAds = {};
   for (const f of files) {
@@ -337,7 +360,6 @@ function groupFilesByAdsorbate(files) {
 }
 
 function pkey(p) {
-  // Match Python f"{float(p):.4g}"
   const n = parseFloat(p);
   return parseFloat(n.toPrecision(4)).toString();
 }
@@ -352,18 +374,15 @@ function findLooseKey(obj, p) {
 function mergeShards(shardData) {
   if (shardData.length === 0) return null;
   const first = shardData[0];
-
   const pressureSet = new Set();
   for (const s of shardData) for (const p of (s.pressures || [])) pressureSet.add(parseFloat(p));
   const pressures = [...pressureSet].sort((a, b) => a - b);
-
   const per_pressure = {};
   for (const p of pressures) {
     const k = pkey(p);
     let completed = 0, converged = 0, failed = 0;
     for (const s of shardData) {
-      const rec = (s.per_pressure || {})[k] ||
-                  findLooseKey(s.per_pressure || {}, p);
+      const rec = (s.per_pressure || {})[k] || findLooseKey(s.per_pressure || {}, p);
       if (!rec) continue;
       completed += rec.completed || 0;
       converged += rec.converged || 0;
@@ -371,15 +390,12 @@ function mergeShards(shardData) {
     }
     per_pressure[k] = { completed, converged, failed };
   }
-
   const total_mofs = shardData.reduce((s, x) => s + (x.total_mofs || 0), 0);
   const last_update = shardData.map(s => s.last_update).filter(Boolean).sort().at(-1);
   const start_time  = shardData.map(s => s.start_time).filter(Boolean).sort()[0];
-
   const mostRecent = shardData.slice().sort(
     (a, b) => new Date(b.last_update || 0) - new Date(a.last_update || 0)
   )[0];
-
   return {
     adsorbate: first.adsorbate,
     server: `${shardData.length} shards`,
@@ -451,7 +467,6 @@ function convColor(rate) {
   const h = rate * 120;
   return `hsl(${h}, 60%, 38%)`;
 }
-
 function renderPressureGrid(data) {
   if (!data || !data.per_pressure) return '';
   const entries = Object.entries(data.per_pressure)
@@ -479,7 +494,6 @@ function renderPressureGrid(data) {
   }).join('');
   return `<div class="pressure-grid">${cells}</div>`;
 }
-
 function renderShardSummary(data) {
   if (!data || !data.shard_updates) return '';
   const counts = { live: 0, stale: 0, dead: 0 };
@@ -496,7 +510,6 @@ function renderShardSummary(data) {
     ${pldStr ? '· ' + pldStr : ''}
   </div>`;
 }
-
 function renderCard(adsorbate, data) {
   if (!data) {
     return `<div class="card no-data">
@@ -536,7 +549,6 @@ function renderCard(adsorbate, data) {
       ${renderPressureGrid(data)}
     </div>`;
 }
-
 function renderSummary(allData) {
   const anyLive = allData.filter(d => d && heartbeatClass(d.last_update) === 'hb-live').length;
   let totalWork = 0, totalDone = 0, totalConv = 0, totalFail = 0;
@@ -571,8 +583,13 @@ function renderSummary(allData) {
     </div>`;
 }
 
-// ---------- main ----------
+// ---------- core refresh with incremental fetch ----------
 async function refresh() {
+  if (Date.now() < backoffUntil) {
+    const left = Math.ceil((backoffUntil - Date.now()) / 60000);
+    showError(`Backing off due to rate limit. Retrying in ${left} min.\n(You can still press "refresh now" to force, but it'll likely fail.)`);
+    return;
+  }
   const cfg = readConfig();
   if (!cfg.folderId || !cfg.apiKey) {
     showError('Click ⚙ config and enter your Google Drive folder ID and API key.');
@@ -580,42 +597,95 @@ async function refresh() {
     return;
   }
   try {
+    lastFetchAttempt = Date.now();
     const files = await listDriveFiles(cfg.folderId, cfg.apiKey);
-    const byAds = groupFilesByAdsorbate(files);
 
-    const results = await Promise.all(ADSORBATES.map(async ads => {
+    // Incremental: only fetch shards whose modifiedTime changed
+    const toFetch = [];
+    const currentIds = new Set();
+    for (const f of files) {
+      currentIds.add(f.id);
+      const cached = shardCache.get(f.id);
+      if (!cached || cached.modifiedTime !== f.modifiedTime) {
+        toFetch.push(f);
+      }
+    }
+    // Drop stale cache entries for deleted files
+    for (const id of [...shardCache.keys()]) {
+      if (!currentIds.has(id)) shardCache.delete(id);
+    }
+
+    // Fetch changed files in parallel (one promise per file)
+    const fetchResults = await Promise.all(toFetch.map(async f => {
+      try {
+        const data = await fetchDriveJSON(f.id, cfg.apiKey);
+        shardCache.set(f.id, { modifiedTime: f.modifiedTime, data, name: f.name });
+        return { ok: true, file: f };
+      } catch (e) {
+        return { ok: false, file: f, error: e };
+      }
+    }));
+    const fetchedOk = fetchResults.filter(r => r.ok).length;
+    const fetchedFail = fetchResults.length - fetchedOk;
+
+    // Group all cached shards by adsorbate
+    const byAds = {};
+    for (const f of files) {
+      const entry = shardCache.get(f.id);
+      if (!entry) continue;
+      const m = f.name.match(/^status_([A-Za-z0-9]+)(?:_shard\d+)?\.json$/);
+      if (!m) continue;
+      const ads = m[1];
+      (byAds[ads] ||= []).push(entry.data);
+    }
+    const results = ADSORBATES.map(ads => {
       const shards = byAds[ads];
       if (!shards || shards.length === 0) return null;
-      const parsed = await Promise.all(
-        shards.map(s => fetchDriveJSON(s.id, cfg.apiKey).catch(() => null))
-      );
-      return mergeShards(parsed.filter(Boolean));
-    }));
+      return mergeShards(shards);
+    });
 
     clearError();
     document.getElementById('grid').innerHTML =
       ADSORBATES.map((a, i) => renderCard(a, results[i])).join('');
     document.getElementById('summary').innerHTML = renderSummary(results);
     document.getElementById('last-refresh').textContent =
-      `refreshed ${new Date().toLocaleTimeString('sv', {timeZone:'Asia/Seoul'})} KST · ${files.length} files`;
+      `refreshed ${new Date().toLocaleTimeString('sv', {timeZone:'Asia/Seoul'})} KST · ${files.length} files seen · ${fetchedOk} fetched${fetchedFail ? ` · ${fetchedFail} fail` : ''} · ${shardCache.size} cached`;
   } catch (e) {
     showError(`Error: ${e.message}\n\nChecks:\n• Folder shared as "Anyone with link → Viewer"\n• API key has Google Drive API enabled\n• HTTP referrer restriction allows this URL`);
     console.error(e);
   }
 }
 
+function manualRefresh() {
+  backoffUntil = 0; // user override
+  refresh();
+}
+
+// ---------- schedule ----------
 let timer;
-function setupAutoRefresh() {
-  clearInterval(timer);
-  if (document.getElementById('auto-refresh').checked) {
-    timer = setInterval(refresh, 30000);
+function setupTimer() {
+  if (timer) clearInterval(timer);
+  const interval = parseInt(document.getElementById('refresh-interval').value, 10);
+  if (interval > 0) {
+    timer = setInterval(() => {
+      // skip if tab is hidden (saves quota)
+      if (!document.hidden) refresh();
+    }, interval);
   }
 }
-document.getElementById('auto-refresh').addEventListener('change', setupAutoRefresh);
-window.addEventListener('hashchange', refresh);
+document.getElementById('refresh-interval').addEventListener('change', setupTimer);
+window.addEventListener('hashchange', () => { shardCache.clear(); refresh(); });
+
+// Refresh when tab comes back after long absence
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    const idle = Date.now() - lastFetchAttempt;
+    if (idle > 5 * 60 * 1000) refresh();
+  }
+});
 
 refresh();
-setupAutoRefresh();
+setupTimer();
 </script>
 </body>
 </html>
