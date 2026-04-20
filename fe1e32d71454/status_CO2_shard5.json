@@ -1,7 +1,7 @@
 {
   "adsorbate": "CO2",
   "server": "fe1e32d71454",
-  "last_update": "2026-04-20T13:29:49.703725+00:00",
+  "last_update": "2026-04-20T14:00:01.873477+00:00",
   "start_time": "2026-04-20T08:46:41.237469+00:00",
   "total_mofs": 636,
   "pressures": [
@@ -20,67 +20,67 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 94,
+      "completed": 168,
       "converged": 32,
-      "failed": 62
+      "failed": 136
     },
     "0.5": {
-      "completed": 94,
+      "completed": 168,
       "converged": 33,
-      "failed": 61
+      "failed": 135
     },
     "1": {
-      "completed": 94,
+      "completed": 168,
       "converged": 33,
-      "failed": 61
+      "failed": 135
     },
     "2": {
-      "completed": 94,
+      "completed": 168,
       "converged": 33,
-      "failed": 61
+      "failed": 135
     },
     "3": {
-      "completed": 94,
+      "completed": 168,
       "converged": 33,
-      "failed": 61
+      "failed": 135
     },
     "4": {
-      "completed": 94,
+      "completed": 168,
       "converged": 33,
-      "failed": 61
+      "failed": 135
     },
     "5": {
-      "completed": 94,
+      "completed": 168,
       "converged": 32,
-      "failed": 62
+      "failed": 136
     },
     "6": {
-      "completed": 94,
+      "completed": 168,
       "converged": 32,
-      "failed": 62
+      "failed": 136
     },
     "7": {
-      "completed": 94,
+      "completed": 168,
       "converged": 32,
-      "failed": 62
+      "failed": 136
     },
     "8": {
-      "completed": 94,
+      "completed": 168,
       "converged": 32,
-      "failed": 62
+      "failed": 136
     },
     "9": {
-      "completed": 94,
+      "completed": 168,
       "converged": 32,
-      "failed": 62
+      "failed": 136
     },
     "10": {
-      "completed": 94,
+      "completed": 168,
       "converged": 32,
-      "failed": 62
+      "failed": 136
     }
   },
-  "current_mof": "qmof-bfe65fd",
+  "current_mof": "qmof-95c22b4",
   "current_pressure": 0.1,
   "mof_set_info": {
     "shard_file": "/workspace/shards/CO2/shard_CO2_5.txt",
