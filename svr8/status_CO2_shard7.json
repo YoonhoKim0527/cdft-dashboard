@@ -1,8 +1,8 @@
 {
   "adsorbate": "CO2",
   "server": "svr8",
-  "last_update": "2026-04-20T13:59:56.562119+00:00",
-  "start_time": "2026-04-20T13:57:54.920530+00:00",
+  "last_update": "2026-04-20T14:28:19.821678+00:00",
+  "start_time": "2026-04-20T14:15:26.591564+00:00",
   "total_mofs": 10,
   "pressures": [
     0.1,
@@ -30,8 +30,8 @@
       "failed": 1
     },
     "1": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "2": {
@@ -81,7 +81,7 @@
     }
   },
   "current_mof": "qmof-7a7e541",
-  "current_pressure": 0.5,
+  "current_pressure": 1.0,
   "mof_set_info": {
     "shard_file": "/home/yoonho/exp037_solver/shards/co2_10.txt",
     "shard_index": "7",
