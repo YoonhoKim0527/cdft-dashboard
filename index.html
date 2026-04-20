@@ -1,636 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>cDFT Label Generation Monitor</title>
+<meta charset="utf-8">
+<title>cDFT Label Generation — Dashboard</title>
 <style>
-  :root {
-    --bg: #0b0f14;
-    --card: #141b24;
-    --card-hover: #1a2330;
-    --border: #2a3442;
-    --text: #e4e9f0;
-    --muted: #7a8598;
-    --accent: #5eead4;
-    --warn: #fbbf24;
-    --danger: #f87171;
-    --ok: #34d399;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, 'SF Mono', Menlo, monospace;
-    background: var(--bg);
-    color: var(--text);
-    padding: 20px;
-    min-height: 100vh;
-  }
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 16px;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .title { font-size: 20px; font-weight: 600; letter-spacing: -0.5px; }
-  .meta { color: var(--muted); font-size: 12px; }
-  .summary {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .summary-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px;
-  }
-  .summary-label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .summary-value { font-size: 22px; font-weight: 600; margin-top: 6px; }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 12px;
-  }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    transition: background 0.2s;
-  }
-  .card:hover { background: var(--card-hover); }
-  .card-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4px;
-  }
-  .adsorbate { font-size: 18px; font-weight: 600; }
-  .server-info { font-size: 11px; color: var(--muted); text-align: right; }
-  .heartbeat {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 6px;
-  }
-  .hb-live { background: var(--ok); box-shadow: 0 0 6px var(--ok); }
-  .hb-stale { background: var(--warn); }
-  .hb-dead { background: var(--danger); }
-  .hb-none { background: var(--muted); }
-  .shard-summary {
-    font-size: 10px;
-    color: var(--muted);
-    margin-bottom: 6px;
-  }
-  .progress-bar {
-    height: 6px;
-    background: var(--border);
-    border-radius: 3px;
-    overflow: hidden;
-    margin: 8px 0 6px;
-  }
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), #8b5cf6);
-    transition: width 0.4s ease;
-  }
-  .progress-text {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: var(--muted);
-  }
-  .row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    padding: 3px 0;
-  }
-  .row-label { color: var(--muted); }
-  .row-value { font-weight: 500; }
-  .conv-high { color: var(--ok); }
-  .conv-mid { color: var(--warn); }
-  .conv-low { color: var(--danger); }
-  .controls {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .btn {
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 12px;
-  }
-  .btn:hover { background: var(--card-hover); }
-  .card.no-data { opacity: 0.5; }
-  .pressure-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3px;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid var(--border);
-  }
-  .p-cell {
-    flex: 0 0 30px;
-    text-align: center;
-    cursor: help;
-  }
-  .p-cell.current .p-bar {
-    outline: 1.5px solid var(--accent);
-    outline-offset: 1px;
-  }
-  .p-cell.ext .p-label {
-    color: var(--accent);
-    font-weight: 600;
-  }
-  .p-label {
-    font-size: 9px;
-    color: var(--muted);
-    margin-bottom: 2px;
-    line-height: 1;
-  }
-  .p-bar {
-    height: 22px;
-    background: #0a0f15;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-  }
-  .p-fill {
-    height: 100%;
-    transition: all 0.3s;
-  }
-  .legend {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    margin-top: 16px;
-    padding-top: 12px;
-    border-top: 1px dashed var(--border);
-    font-size: 11px;
-    color: var(--muted);
-    flex-wrap: wrap;
-  }
-  .legend-gradient {
-    width: 100px;
-    height: 10px;
-    background: linear-gradient(90deg, hsl(0,60%,35%), hsl(60,60%,35%), hsl(120,60%,35%));
-    border-radius: 2px;
-  }
-  .config-panel {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 16px;
-    display: none;
-  }
-  .config-panel.open { display: block; }
-  .config-panel input {
-    width: 100%;
-    padding: 8px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text);
-    border-radius: 4px;
-    margin-top: 4px;
-    font-family: inherit;
-    font-size: 12px;
-  }
-  .config-panel label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 11px;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-  .error {
-    background: rgba(248,113,113,0.1);
-    border: 1px solid var(--danger);
-    color: var(--danger);
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 12px;
-    font-size: 12px;
-    white-space: pre-wrap;
-  }
-  @media (max-width: 640px) {
-    .summary { grid-template-columns: repeat(2, 1fr); }
-    .header { flex-direction: column; gap: 8px; align-items: flex-start; }
-    .grid { grid-template-columns: 1fr; }
-  }
+  :root { color-scheme: dark; }
+  body { font: 13px/1.4 -apple-system, system-ui, Segoe UI, sans-serif;
+         margin: 16px; background: #0f1115; color: #e5e7eb; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .small { color: #9ca3af; font-size: 11px; }
+  .controls { margin: 6px 0 14px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  input { background: #1a1d26; border: 1px solid #2a2f3a; color: #e5e7eb;
+          padding: 4px 8px; border-radius: 4px; font: inherit; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 14px; }
+  .card { background: #1a1d26; border-radius: 8px; padding: 14px; border: 1px solid #2a2f3a; }
+  .card h2 { font-size: 15px; margin: 0 0 2px; display: flex; align-items: center; gap: 6px; }
+  .kv { display: flex; gap: 10px; flex-wrap: wrap; font-size: 11px; color: #9ca3af; margin: 4px 0; }
+  .bar { height: 8px; border-radius: 4px; background: #2a2f3a; overflow: hidden; margin: 6px 0 2px; }
+  .bar > div { height: 100%; background: linear-gradient(90deg,#60a5fa,#34d399); transition: width 0.4s; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(34px, 1fr)); gap: 2px; margin-top: 8px; }
+  .cell { height: 28px; border-radius: 3px; background: #2a2f3a; font-size: 9px; color: #f0f0f0;
+          display: flex; align-items: center; justify-content: center; cursor: help;
+          text-shadow: 0 0 2px #0006; }
+  .beat { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .beat.ok   { background: #4ade80; box-shadow: 0 0 6px #4ade80aa; }
+  .beat.warn { background: #facc15; }
+  .beat.dead { background: #ef4444; }
+  .err { color: #f87171; font-size: 12px; }
 </style>
 </head>
 <body>
-
-<div class="header">
-  <div>
-    <div class="title">cDFT Label Generation Monitor</div>
-    <div class="meta" id="last-refresh">—</div>
-  </div>
-  <div class="controls">
-    <label class="meta">
-      refresh every
-      <select id="refresh-interval" class="btn" style="margin:0 4px">
-        <option value="60000">1 min</option>
-        <option value="300000" selected>5 min</option>
-        <option value="600000">10 min</option>
-        <option value="1800000">30 min</option>
-        <option value="0">manual only</option>
-      </select>
-    </label>
-    <button class="btn" onclick="manualRefresh()">refresh now</button>
-    <button class="btn" onclick="toggleConfig()">⚙ config</button>
-  </div>
-</div>
-
-<div class="config-panel" id="config-panel">
-  <label>GitHub user/repo serving status JSONs
-    <input type="text" id="cfg-repo" placeholder="yoonhokim0527/cdft-status">
+<h1>cDFT Label Generation</h1>
+<div class="controls">
+  <label>Status dir:
+    <input id="dir" value="." size="18" title="경로. HTML과 같은 폴더면 `.` 유지">
   </label>
-  <label>Server subdirectories (comma-separated; each has its own shards)
-    <input type="text" id="cfg-servers" placeholder="vast-gpu-1,kaist-1,kaist-2,kaist-3">
+  <label>Refresh:
+    <input id="period" type="number" value="5" min="1" max="120" size="3"> s
   </label>
-  <button class="btn" onclick="saveConfig()">save &amp; reload</button>
-  <p class="meta" style="margin-top:8px">
-    Dashboard fetches <code>https://{user}.github.io/{repo}/{server}/status_&lt;ADS&gt;_shard&lt;N&gt;.json</code>.<br>
-    No API key needed — files are served as static assets by GitHub Pages.<br>
-    Config saved in URL hash — bookmark to persist.
-  </p>
+  <span id="last" class="small"></span>
 </div>
-
-<div id="error-area"></div>
-<div class="summary" id="summary"></div>
-<div class="grid" id="grid"></div>
-
-<div class="legend">
-  <span>pressure cells:</span>
-  <span>fill width = completed / total</span>
-  <span>fill color = convergence:</span>
-  <span class="legend-gradient"></span>
-  <span>0% → 100%</span>
-  <span style="color:var(--accent)">■ extended range (&gt;10 bar)</span>
-</div>
-
+<div id="cards" class="cards"></div>
+<div id="err" class="err"></div>
 <script>
-const ADSORBATES = ['H2', 'CH4', 'N2', 'C2H6', 'C3H8', 'CO2', 'Xe', 'Ar', 'Kr'];
-const SHARD_RANGE = 8;           // try shard0..shard7 per (server, adsorbate)
-const LIVE_THRESHOLD = 180;
-const STALE_THRESHOLD = 3600;
-const COMMON_MAX = 10;
+const GASES  = ["H2","CH4","N2","C2H6","C3H8","CO2","Xe","Ar","Kr"];
+const SHARDS = [0,1,2,3,4,5,6,7];
 
-let lastFetchAttempt = 0;
-
-// ---------- config ----------
-function readConfig() {
-  const hash = location.hash.replace(/^#/, '');
-  const params = new URLSearchParams(hash);
-  return {
-    repo:    params.get('repo')    || '',
-    servers: (params.get('servers') || '').split(',').map(s => s.trim()).filter(Boolean),
-  };
-}
-function saveConfig() {
-  const repo    = document.getElementById('cfg-repo').value.trim();
-  const servers = document.getElementById('cfg-servers').value.trim();
-  location.hash = `repo=${encodeURIComponent(repo)}&servers=${encodeURIComponent(servers)}`;
-  location.reload();
-}
-function toggleConfig() {
-  const panel = document.getElementById('config-panel');
-  panel.classList.toggle('open');
-  const cfg = readConfig();
-  document.getElementById('cfg-repo').value = cfg.repo;
-  document.getElementById('cfg-servers').value = cfg.servers.join(',');
-}
-function showError(msg) {
-  document.getElementById('error-area').innerHTML = `<div class="error">${msg}</div>`;
-}
-function clearError() { document.getElementById('error-area').innerHTML = ''; }
-
-// Build the base URL for a given server
-function baseUrl(cfg, server) {
-  const [user, repo] = cfg.repo.split('/');
-  return `https://${user}.github.io/${repo}/${server}`;
+async function tryFetch(url) {
+  try {
+    const r = await fetch(url + "?t=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) return null;
+    return await r.json();
+  } catch (e) { return null; }
 }
 
-// Fetch a JSON file; return null on 404 (file just doesn't exist for this combo)
-async function fetchJSON(url) {
-  const res = await fetch(url + '?t=' + Date.now(), { cache: 'no-cache' });
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-  return await res.json();
+async function discover(baseDir) {
+  // 1) manifest.json has { "files": ["status_H2_shard0.json", ...] }
+  const m = await tryFetch(baseDir + "/manifest.json");
+  if (m && Array.isArray(m.files)) return m.files;
+  // 2) fallback: brute-force GASES x SHARDS
+  const names = [];
+  for (const g of GASES) for (const s of SHARDS) names.push(`status_${g}_shard${s}.json`);
+  return names;
 }
 
-// Try all (server, adsorbate, shardN) combinations
-async function fetchAllShards(cfg) {
-  const tasks = [];
-  for (const server of cfg.servers) {
-    const base = baseUrl(cfg, server);
-    for (const ads of ADSORBATES) {
-      for (let n = 0; n < SHARD_RANGE; n++) {
-        const url = `${base}/status_${ads}_shard${n}.json`;
-        tasks.push(fetchJSON(url).then(d => d ? { ads, data: d, url } : null).catch(() => null));
-      }
+async function loadAll(baseDir) {
+  const names = await discover(baseDir);
+  const res = await Promise.all(names.map(async n => {
+    const d = await tryFetch(baseDir + "/" + n);
+    return d ? { file: n, data: d } : null;
+  }));
+  return res.filter(Boolean);
+}
+
+function keyFor(p) {
+  // Match python's f"{p:.4g}"
+  const s = Number(p).toPrecision(4);
+  return parseFloat(s).toString();
+}
+
+function aggregate(entries) {
+  const byAds = {};
+  for (const { data } of entries) {
+    const a = data.adsorbate;
+    if (!byAds[a]) {
+      byAds[a] = {
+        adsorbate: a, shards: [], total_mofs: 0,
+        pressures: data.pressures.slice(),
+        per_pressure: {}, start_time: data.start_time,
+        last_update: data.last_update, servers: new Set(), currents: [],
+      };
     }
-  }
-  const results = await Promise.all(tasks);
-  return results.filter(Boolean);
-}
-
-// ---------- shard grouping ----------
-function pkey(p) {
-  const n = parseFloat(p);
-  return parseFloat(n.toPrecision(4)).toString();
-}
-function findLooseKey(obj, p) {
-  const target = parseFloat(p);
-  for (const k of Object.keys(obj)) {
-    if (Math.abs(parseFloat(k) - target) < 1e-6) return obj[k];
-  }
-  return null;
-}
-
-function mergeShards(shardData) {
-  if (shardData.length === 0) return null;
-  const first = shardData[0];
-  const pressureSet = new Set();
-  for (const s of shardData) for (const p of (s.pressures || [])) pressureSet.add(parseFloat(p));
-  const pressures = [...pressureSet].sort((a, b) => a - b);
-  const per_pressure = {};
-  for (const p of pressures) {
-    const k = pkey(p);
-    let completed = 0, converged = 0, failed = 0;
-    for (const s of shardData) {
-      const rec = (s.per_pressure || {})[k] || findLooseKey(s.per_pressure || {}, p);
-      if (!rec) continue;
-      completed += rec.completed || 0;
-      converged += rec.converged || 0;
-      failed    += rec.failed    || 0;
+    const ag = byAds[a];
+    ag.shards.push(data);
+    ag.total_mofs += data.total_mofs;
+    ag.servers.add(data.server);
+    if (data.start_time && data.start_time < ag.start_time) ag.start_time = data.start_time;
+    if (data.last_update && data.last_update > ag.last_update) ag.last_update = data.last_update;
+    for (const [pk, c] of Object.entries(data.per_pressure)) {
+      if (!ag.per_pressure[pk]) ag.per_pressure[pk] = { completed:0, converged:0, failed:0 };
+      ag.per_pressure[pk].completed += c.completed|0;
+      ag.per_pressure[pk].converged += c.converged|0;
+      ag.per_pressure[pk].failed    += c.failed|0;
     }
-    per_pressure[k] = { completed, converged, failed };
+    // merge pressure lists (union)
+    for (const p of data.pressures) if (!ag.pressures.includes(p)) ag.pressures.push(p);
+    if (data.current_mof) ag.currents.push({ mof: data.current_mof, p: data.current_pressure, server: data.server });
   }
-  const total_mofs = shardData.reduce((s, x) => s + (x.total_mofs || 0), 0);
-  const last_update = shardData.map(s => s.last_update).filter(Boolean).sort().at(-1);
-  const start_time  = shardData.map(s => s.start_time).filter(Boolean).sort()[0];
-  const mostRecent = shardData.slice().sort(
-    (a, b) => new Date(b.last_update || 0) - new Date(a.last_update || 0)
-  )[0];
-  return {
-    adsorbate: first.adsorbate,
-    server: `${shardData.length} shards`,
-    last_update, start_time,
-    total_mofs,
-    pressures,
-    per_pressure,
-    current_mof: mostRecent?.current_mof,
-    current_pressure: mostRecent?.current_pressure,
-    mof_set_info: first.mof_set_info,
-    shard_count: shardData.length,
-    shard_updates: shardData.map(s => ({
-      server: s.server, last_update: s.last_update,
-    })),
-  };
+  for (const ag of Object.values(byAds)) ag.pressures.sort((a,b) => a-b);
+  return Object.values(byAds);
 }
 
-// ---------- rendering (unchanged from v3) ----------
-function heartbeatClass(lastUpdate) {
-  if (!lastUpdate) return 'hb-none';
-  const age = (Date.now() - new Date(lastUpdate).getTime()) / 1000;
-  if (age < LIVE_THRESHOLD) return 'hb-live';
-  if (age < STALE_THRESHOLD) return 'hb-stale';
-  return 'hb-dead';
+function fmtETA(ag, totalCompleted) {
+  if (totalCompleted < 5) return "— (starting)";
+  const elapsed = Date.now() - new Date(ag.start_time).getTime();
+  const totalWork = ag.total_mofs * ag.pressures.length;
+  const rate = totalCompleted / elapsed;
+  const remaining = Math.max(0, totalWork - totalCompleted);
+  if (rate <= 0) return "—";
+  const etaMs = remaining / rate;
+  const h = Math.floor(etaMs/3600e3);
+  const m = Math.floor((etaMs%3600e3)/60e3);
+  return `${h}h${String(m).padStart(2,"0")}m`;
 }
-function fmtTime(iso) {
-  if (!iso) return '—';
-  return new Date(iso).toLocaleString('sv', { timeZone: 'Asia/Seoul' }).slice(5, 16);
+
+function heartbeat(iso) {
+  if (!iso) return "dead";
+  const dm = (Date.now() - new Date(iso).getTime()) / 60e3;
+  if (dm < 2) return "ok";
+  if (dm < 10) return "warn";
+  return "dead";
 }
-function fmtDuration(sec) {
-  if (!isFinite(sec) || sec < 0) return '—';
-  const h = Math.floor(sec / 3600);
-  const m = Math.floor((sec % 3600) / 60);
-  if (h >= 24) return `${Math.floor(h/24)}d ${h%24}h`;
-  if (h > 0) return `${h}h ${m}m`;
-  return `${m}m`;
-}
-function aggregateCounts(data) {
-  if (!data || !data.per_pressure) return null;
-  const entries = Object.values(data.per_pressure);
-  const totalDone = entries.reduce((s,v) => s + v.completed, 0);
-  const totalConv = entries.reduce((s,v) => s + v.converged, 0);
-  const totalFail = entries.reduce((s,v) => s + v.failed, 0);
-  const nP = entries.length;
-  const totalWork = data.total_mofs * nP;
-  const convRate = totalDone > 0 ? totalConv / totalDone : null;
-  return { totalDone, totalConv, totalFail, totalWork, nP, convRate };
-}
-function computeETA(data) {
-  const a = aggregateCounts(data);
-  if (!a || a.totalDone === 0) return null;
-  const elapsed = (new Date(data.last_update) - new Date(data.start_time)) / 1000;
-  if (elapsed <= 0) return null;
-  const rate = a.totalDone / elapsed;
-  const etaSec = (a.totalWork - a.totalDone) / rate;
-  return {
-    etaSec,
-    etaTime: new Date(Date.now() + etaSec * 1000).toISOString(),
-    ratePerHr: rate * 3600,
-  };
-}
-function convClass(rate) {
-  if (rate === null || rate === undefined) return '';
-  if (rate > 0.95) return 'conv-high';
-  if (rate > 0.85) return 'conv-mid';
-  return 'conv-low';
-}
-function convColor(rate) {
-  const h = rate * 120;
-  return `hsl(${h}, 60%, 38%)`;
-}
-function renderPressureGrid(data) {
-  if (!data || !data.per_pressure) return '';
-  const entries = Object.entries(data.per_pressure)
-    .map(([k, v]) => ({ p: parseFloat(k), ...v }))
-    .sort((a, b) => a.p - b.p);
-  const cells = entries.map(e => {
-    const convRate = e.completed > 0 ? e.converged / e.completed : null;
-    const progRate = data.total_mofs > 0 ? Math.min(e.completed / data.total_mofs, 1) : 0;
-    const isExt = e.p > COMMON_MAX;
-    const isCurrent = data.current_pressure !== null &&
-                      data.current_pressure !== undefined &&
-                      Math.abs(e.p - data.current_pressure) < 1e-6;
-    const bgColor = convRate !== null ? convColor(convRate) : 'transparent';
-    const tip = `${e.p} bar | ${e.completed}/${data.total_mofs}` +
-                (convRate !== null
-                  ? ` | conv ${(convRate*100).toFixed(1)}%${e.failed > 0 ? ` (${e.failed} failed)` : ''}`
-                  : ' | not started');
-    const label = e.p < 1 ? e.p.toFixed(1) : (e.p >= 10 ? e.p.toFixed(0) : e.p.toString());
-    return `<div class="p-cell ${isCurrent ? 'current' : ''} ${isExt ? 'ext' : ''}" title="${tip}">
-      <div class="p-label">${label}</div>
-      <div class="p-bar">
-        <div class="p-fill" style="width:${(progRate*100).toFixed(1)}%; background:${bgColor}"></div>
-      </div>
-    </div>`;
-  }).join('');
-  return `<div class="pressure-grid">${cells}</div>`;
-}
-function renderShardSummary(data) {
-  if (!data || !data.shard_updates) return '';
-  const counts = { live: 0, stale: 0, dead: 0 };
-  for (const s of data.shard_updates) {
-    const cls = heartbeatClass(s.last_update);
-    if (cls === 'hb-live')  counts.live++;
-    else if (cls === 'hb-stale') counts.stale++;
-    else counts.dead++;
+
+function renderCard(ag) {
+  let totCompleted = 0, totConverged = 0, totFailed = 0;
+  for (const c of Object.values(ag.per_pressure)) {
+    totCompleted += c.completed; totConverged += c.converged; totFailed += c.failed;
   }
-  const pld = data.mof_set_info?.pld_min;
-  const pldStr = pld !== undefined ? `PLD ≥ ${pld} Å` : '';
-  return `<div class="shard-summary">
-    ${data.shard_count} shards: 🟢${counts.live} 🟡${counts.stale} 🔴${counts.dead}
-    ${pldStr ? '· ' + pldStr : ''}
+  const totalWork = ag.total_mofs * ag.pressures.length;
+  const pct = totalWork > 0 ? (totCompleted/totalWork*100) : 0;
+  const convPct = totCompleted > 0 ? (totConverged/totCompleted*100).toFixed(1) : "—";
+  const bt = heartbeat(ag.last_update);
+  const servers = [...ag.servers].join(", ");
+  const cellsHTML = ag.pressures.map(p => {
+    const k = keyFor(p);
+    const c = ag.per_pressure[k] || { completed:0, converged:0, failed:0 };
+    const fill = ag.total_mofs > 0 ? (c.completed/ag.total_mofs) : 0;
+    const conv = c.completed > 0 ? (c.converged/c.completed) : 0;
+    const hue = Math.round(120 * conv);
+    const alpha = Math.max(0.15, Math.min(1, fill + 0.15));
+    const bg = `hsla(${hue}, 70%, 45%, ${alpha})`;
+    const title = `p=${p} bar\n${c.completed}/${ag.total_mofs} MOFs\nconverged ${c.converged}, failed ${c.failed}`;
+    return `<div class="cell" style="background:${bg}" title="${title}">${p}</div>`;
+  }).join("");
+  const currents = ag.currents.slice(0, 6)
+    .map(cu => `${cu.server}:${cu.mof}@${cu.p}`).join(" · ");
+  return `<div class="card">
+    <h2><span class="beat ${bt}" title="${ag.last_update}"></span>${ag.adsorbate}
+        <span class="small">(${ag.shards.length} shard · ${servers})</span></h2>
+    <div class="kv">
+      <span>${totCompleted}/${totalWork} steps</span>
+      <span>Conv ${convPct}%</span>
+      <span>Failed ${totFailed}</span>
+      <span>ETA ${fmtETA(ag, totCompleted)}</span>
+    </div>
+    <div class="bar"><div style="width:${pct}%"></div></div>
+    <div class="small">${pct.toFixed(1)}% · ${ag.total_mofs} MOFs/shard · started ${new Date(ag.start_time).toLocaleString()} · last ${new Date(ag.last_update).toLocaleTimeString()}</div>
+    <div class="grid">${cellsHTML}</div>
+    <div class="small" style="margin-top:6px">${currents || "—"}</div>
   </div>`;
 }
-function renderCard(adsorbate, data) {
-  if (!data) {
-    return `<div class="card no-data">
-      <div class="card-head">
-        <div class="adsorbate">${adsorbate}</div>
-        <span><span class="heartbeat hb-none"></span><span class="server-info">no data</span></span>
-      </div>
-      <div class="row"><span class="row-label">waiting for status file...</span></div>
-    </div>`;
-  }
-  const a = aggregateCounts(data);
-  const eta = computeETA(data);
-  const pct = a.totalWork > 0 ? (a.totalDone / a.totalWork * 100) : 0;
-  const hbCls = heartbeatClass(data.last_update);
-  return `
-    <div class="card">
-      <div class="card-head">
-        <div class="adsorbate">${adsorbate}</div>
-        <span><span class="heartbeat ${hbCls}"></span><span class="server-info">${data.server || '—'}</span></span>
-      </div>
-      ${renderShardSummary(data)}
-      <div class="progress-bar"><div class="progress-fill" style="width:${pct.toFixed(1)}%"></div></div>
-      <div class="progress-text">
-        <span>${a.totalDone.toLocaleString()} / ${a.totalWork.toLocaleString()}</span>
-        <span>${pct.toFixed(1)}%</span>
-      </div>
-      <div style="margin-top:8px">
-        <div class="row"><span class="row-label">convergence</span>
-          <span class="row-value ${convClass(a.convRate)}">${a.convRate !== null ? (a.convRate*100).toFixed(1) + '%' : '—'} (${a.totalFail} failed)</span></div>
-        <div class="row"><span class="row-label">ETA</span>
-          <span class="row-value">${eta ? fmtDuration(eta.etaSec) : '—'}</span></div>
-        <div class="row"><span class="row-label">finishes</span>
-          <span class="row-value">${eta ? fmtTime(eta.etaTime) : '—'}</span></div>
-        <div class="row"><span class="row-label">current</span>
-          <span class="row-value" style="font-size:10px">${data.current_mof || '—'}${data.current_pressure !== null && data.current_pressure !== undefined ? ' @ ' + data.current_pressure + ' bar' : ''}</span></div>
-      </div>
-      ${renderPressureGrid(data)}
-    </div>`;
-}
-function renderSummary(allData) {
-  const anyLive = allData.filter(d => d && heartbeatClass(d.last_update) === 'hb-live').length;
-  let totalWork = 0, totalDone = 0, totalConv = 0, totalFail = 0;
-  for (const d of allData) {
-    const a = aggregateCounts(d);
-    if (!a) continue;
-    totalWork += a.totalWork; totalDone += a.totalDone;
-    totalConv += a.totalConv; totalFail += a.totalFail;
-  }
-  const pct = totalWork > 0 ? (totalDone / totalWork * 100).toFixed(1) : '0.0';
-  const conv = totalDone > 0 ? (totalConv / totalDone * 100).toFixed(1) : '—';
-  const etas = allData.map(d => computeETA(d)).filter(x => x && isFinite(x.etaSec));
-  const slowest = etas.length ? Math.max(...etas.map(e => e.etaSec)) : null;
-  const slowestWhen = slowest !== null ? new Date(Date.now() + slowest * 1000).toISOString() : null;
-  return `
-    <div class="summary-card">
-      <div class="summary-label">adsorbates live</div>
-      <div class="summary-value">${anyLive} / ${ADSORBATES.length}</div>
-    </div>
-    <div class="summary-card">
-      <div class="summary-label">overall progress</div>
-      <div class="summary-value">${pct}%</div>
-    </div>
-    <div class="summary-card">
-      <div class="summary-label">overall convergence</div>
-      <div class="summary-value ${convClass(conv/100)}">${conv}%${totalFail > 0 ? ` <span style="font-size:11px;color:var(--muted)">(${totalFail} fail)</span>` : ''}</div>
-    </div>
-    <div class="summary-card">
-      <div class="summary-label">pipeline ETA (slowest)</div>
-      <div class="summary-value" style="font-size:16px">${slowest !== null ? fmtDuration(slowest) : '—'}<br>
-        <span style="font-size:11px;color:var(--muted)">${slowestWhen ? fmtTime(slowestWhen) + ' KST' : ''}</span></div>
-    </div>`;
-}
 
-// ---------- main refresh ----------
 async function refresh() {
-  const cfg = readConfig();
-  if (!cfg.repo || cfg.servers.length === 0) {
-    showError('Click ⚙ config and enter your GitHub user/repo and server list.');
-    document.getElementById('config-panel').classList.add('open');
-    return;
-  }
+  const dir = (document.getElementById("dir").value || ".").replace(/\/+$/, "");
   try {
-    lastFetchAttempt = Date.now();
-    const shards = await fetchAllShards(cfg);
-    const byAds = {};
-    for (const s of shards) (byAds[s.ads] ||= []).push(s.data);
-    const results = ADSORBATES.map(ads => {
-      const list = byAds[ads];
-      if (!list || list.length === 0) return null;
-      return mergeShards(list);
-    });
-
-    clearError();
-    document.getElementById('grid').innerHTML =
-      ADSORBATES.map((a, i) => renderCard(a, results[i])).join('');
-    document.getElementById('summary').innerHTML = renderSummary(results);
-    document.getElementById('last-refresh').textContent =
-      `refreshed ${new Date().toLocaleTimeString('sv', {timeZone:'Asia/Seoul'})} KST · ${shards.length} shards across ${cfg.servers.length} servers`;
+    const entries = await loadAll(dir);
+    const aggs = aggregate(entries).sort((a,b) => a.adsorbate.localeCompare(b.adsorbate));
+    document.getElementById("cards").innerHTML = aggs.map(renderCard).join("") ||
+      `<div class="small">No status files found in <code>${dir}</code>. Expecting <code>status_&lt;GAS&gt;_shard&lt;i&gt;.json</code>.</div>`;
+    document.getElementById("last").textContent =
+      `${entries.length} file(s) · ${new Date().toLocaleTimeString()}`;
+    document.getElementById("err").textContent = "";
   } catch (e) {
-    showError(`Error: ${e.message}\n\nChecks:\n• GitHub Pages enabled on ${cfg.repo}\n• Push script running on each server (check crontab)\n• At least one status_*.json committed to the repo`);
-    console.error(e);
+    document.getElementById("err").textContent = "Error: " + e.message;
   }
 }
-
-function manualRefresh() { refresh(); }
 
 let timer;
-function setupTimer() {
+function startTimer() {
   if (timer) clearInterval(timer);
-  const interval = parseInt(document.getElementById('refresh-interval').value, 10);
-  if (interval > 0) {
-    timer = setInterval(() => {
-      if (!document.hidden) refresh();
-    }, interval);
-  }
+  const s = Math.max(1, parseInt(document.getElementById("period").value)) * 1000;
+  timer = setInterval(refresh, s);
 }
-document.getElementById('refresh-interval').addEventListener('change', setupTimer);
-window.addEventListener('hashchange', refresh);
-document.addEventListener('visibilitychange', () => {
-  if (!document.hidden) {
-    const idle = Date.now() - lastFetchAttempt;
-    if (idle > 5 * 60 * 1000) refresh();
-  }
-});
-
+document.getElementById("period").addEventListener("change", startTimer);
+document.getElementById("dir").addEventListener("change", refresh);
 refresh();
-setupTimer();
+startTimer();
 </script>
 </body>
 </html>
