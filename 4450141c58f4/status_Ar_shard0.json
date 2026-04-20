@@ -1,0 +1,90 @@
+{
+  "adsorbate": "Ar",
+  "server": "4450141c58f4",
+  "last_update": "2026-04-20T08:06:39.402829+00:00",
+  "start_time": "2026-04-20T08:04:47.671256+00:00",
+  "total_mofs": 616,
+  "pressures": [
+    0.1,
+    0.5,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0
+  ],
+  "per_pressure": {
+    "0.1": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "0.5": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "1": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "2": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "3": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "4": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "5": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "6": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "7": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "8": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "9": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    },
+    "10": {
+      "completed": 1,
+      "converged": 1,
+      "failed": 0
+    }
+  },
+  "current_mof": "qmof-0e8c4b6",
+  "current_pressure": 0.1,
+  "mof_set_info": {
+    "shard_file": "/workspace/shards/Ar/shard_Ar_0.txt",
+    "shard_index": "0",
+    "n_mofs": 616
+  }
+}
