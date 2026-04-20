@@ -1,9 +1,9 @@
 {
   "adsorbate": "C2H6",
   "server": "svr8",
-  "last_update": "2026-04-20T16:29:50.424346+00:00",
-  "start_time": "2026-04-20T16:07:23.048117+00:00",
-  "total_mofs": 10,
+  "last_update": "2026-04-20T16:58:44.951992+00:00",
+  "start_time": "2026-04-20T16:50:37.264859+00:00",
+  "total_mofs": 2,
   "pressures": [
     0.1,
     0.5,
@@ -40,39 +40,39 @@
       "failed": 0
     },
     "3": {
-      "completed": 1,
+      "completed": 0,
       "converged": 0,
-      "failed": 1
+      "failed": 0
     },
     "4": {
-      "completed": 1,
+      "completed": 0,
       "converged": 0,
-      "failed": 1
+      "failed": 0
     },
     "5": {
-      "completed": 1,
+      "completed": 0,
       "converged": 0,
-      "failed": 1
+      "failed": 0
     },
     "6": {
-      "completed": 1,
+      "completed": 0,
       "converged": 0,
-      "failed": 1
+      "failed": 0
     },
     "7": {
-      "completed": 1,
+      "completed": 0,
       "converged": 0,
-      "failed": 1
+      "failed": 0
     },
     "8": {
-      "completed": 1,
+      "completed": 0,
       "converged": 0,
-      "failed": 1
+      "failed": 0
     },
     "9": {
-      "completed": 1,
+      "completed": 0,
       "converged": 0,
-      "failed": 1
+      "failed": 0
     },
     "10": {
       "completed": 0,
@@ -81,10 +81,10 @@
     }
   },
   "current_mof": "qmof-0009829",
-  "current_pressure": 9.0,
+  "current_pressure": 2.0,
   "mof_set_info": {
-    "shard_file": "/home/yoonho/exp037_solver/shards/c2h6_10.txt",
+    "shard_file": "/home/yoonho/exp037_solver/shards/c2h6_2.txt",
     "shard_index": "5",
-    "n_mofs": 10
+    "n_mofs": 2
   }
 }
