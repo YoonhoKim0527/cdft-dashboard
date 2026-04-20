@@ -1,0 +1,198 @@
+{
+  "adsorbate": "H2",
+  "server": "svr4",
+  "last_update": "2026-04-20T07:48:51.365638+00:00",
+  "start_time": "2026-04-19T16:01:45.491004+00:00",
+  "total_mofs": 1443,
+  "pressures": [
+    0.1,
+    0.5,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0,
+    75.0,
+    80.0,
+    85.0,
+    90.0,
+    95.0,
+    100.0
+  ],
+  "per_pressure": {
+    "0.1": {
+      "completed": 217,
+      "converged": 217,
+      "failed": 0
+    },
+    "0.5": {
+      "completed": 217,
+      "converged": 217,
+      "failed": 0
+    },
+    "1": {
+      "completed": 217,
+      "converged": 217,
+      "failed": 0
+    },
+    "2": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "3": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "4": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "5": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "6": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "7": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "8": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "9": {
+      "completed": 217,
+      "converged": 215,
+      "failed": 2
+    },
+    "10": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "15": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "20": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "25": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "30": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "35": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "40": {
+      "completed": 217,
+      "converged": 215,
+      "failed": 2
+    },
+    "45": {
+      "completed": 217,
+      "converged": 216,
+      "failed": 1
+    },
+    "50": {
+      "completed": 216,
+      "converged": 215,
+      "failed": 1
+    },
+    "55": {
+      "completed": 216,
+      "converged": 215,
+      "failed": 1
+    },
+    "60": {
+      "completed": 216,
+      "converged": 215,
+      "failed": 1
+    },
+    "65": {
+      "completed": 216,
+      "converged": 215,
+      "failed": 1
+    },
+    "70": {
+      "completed": 216,
+      "converged": 215,
+      "failed": 1
+    },
+    "75": {
+      "completed": 216,
+      "converged": 215,
+      "failed": 1
+    },
+    "80": {
+      "completed": 216,
+      "converged": 215,
+      "failed": 1
+    },
+    "85": {
+      "completed": 216,
+      "converged": 215,
+      "failed": 1
+    },
+    "90": {
+      "completed": 216,
+      "converged": 215,
+      "failed": 1
+    },
+    "95": {
+      "completed": 216,
+      "converged": 215,
+      "failed": 1
+    },
+    "100": {
+      "completed": 216,
+      "converged": 215,
+      "failed": 1
+    }
+  },
+  "current_mof": "qmof-0918da7",
+  "current_pressure": 45.0,
+  "mof_set_info": {
+    "shard_file": "/home/yoonho/exp036_multi_gas_work/shards/H2/shard_H2_0.txt",
+    "shard_index": "4",
+    "n_mofs": 1443
+  }
+}
