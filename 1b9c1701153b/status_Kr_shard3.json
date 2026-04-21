@@ -1,7 +1,7 @@
 {
   "adsorbate": "Kr",
   "server": "1b9c1701153b",
-  "last_update": "2026-04-21T01:58:33.195760+00:00",
+  "last_update": "2026-04-21T02:25:34.996876+00:00",
   "start_time": "2026-04-20T07:59:22.307809+00:00",
   "total_mofs": 579,
   "pressures": [
@@ -45,34 +45,34 @@
       "failed": 1
     },
     "4": {
-      "completed": 298,
-      "converged": 297,
+      "completed": 299,
+      "converged": 298,
       "failed": 1
     },
     "5": {
-      "completed": 298,
-      "converged": 296,
+      "completed": 299,
+      "converged": 297,
       "failed": 2
     },
     "6": {
-      "completed": 298,
-      "converged": 296,
+      "completed": 299,
+      "converged": 297,
       "failed": 2
     },
     "7": {
-      "completed": 298,
+      "completed": 299,
       "converged": 295,
-      "failed": 3
-    },
-    "8": {
-      "completed": 298,
-      "converged": 294,
       "failed": 4
     },
-    "9": {
-      "completed": 298,
-      "converged": 293,
+    "8": {
+      "completed": 299,
+      "converged": 294,
       "failed": 5
+    },
+    "9": {
+      "completed": 299,
+      "converged": 293,
+      "failed": 6
     },
     "10": {
       "completed": 298,
@@ -81,7 +81,7 @@
     }
   },
   "current_mof": "qmof-7bbf934",
-  "current_pressure": 3.0,
+  "current_pressure": 9.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Kr/shard_Kr_3.txt",
     "shard_index": "3",
