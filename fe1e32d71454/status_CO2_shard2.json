@@ -1,7 +1,7 @@
 {
   "adsorbate": "CO2",
   "server": "fe1e32d71454",
-  "last_update": "2026-04-20T18:37:55.220035+00:00",
+  "last_update": "2026-04-21T01:20:10.928688+00:00",
   "start_time": "2026-04-20T16:09:56.460338+00:00",
   "total_mofs": 636,
   "pressures": [
@@ -25,9 +25,9 @@
       "failed": 1
     },
     "0.5": {
-      "completed": 0,
+      "completed": 1,
       "converged": 0,
-      "failed": 0
+      "failed": 1
     },
     "1": {
       "completed": 0,
@@ -81,7 +81,7 @@
     }
   },
   "current_mof": "qmof-8975a46",
-  "current_pressure": 0.1,
+  "current_pressure": 0.5,
   "mof_set_info": {
     "shard_file": "/workspace/shards/CO2/shard_CO2_2.txt",
     "shard_index": "2",
