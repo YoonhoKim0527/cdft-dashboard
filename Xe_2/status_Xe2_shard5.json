@@ -1,8 +1,8 @@
 {
   "adsorbate": "Xe",
   "server": "Xe_2",
-  "last_update": "2026-04-21T11:40:23.276288+00:00",
-  "start_time": "2026-04-21T11:38:55.527706+00:00",
+  "last_update": "2026-04-21T11:56:07.797522+00:00",
+  "start_time": "2026-04-21T11:45:37.759110+00:00",
   "total_mofs": 208,
   "pressures": [
     0.1,
@@ -20,8 +20,8 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 1,
-      "converged": 1,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "0.5": {
@@ -30,61 +30,61 @@
       "failed": 0
     },
     "1": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "2": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "3": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "4": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "5": {
-      "completed": 0,
+      "completed": 1,
       "converged": 0,
-      "failed": 0
+      "failed": 1
     },
     "6": {
-      "completed": 0,
+      "completed": 1,
       "converged": 0,
-      "failed": 0
+      "failed": 1
     },
     "7": {
-      "completed": 0,
+      "completed": 1,
       "converged": 0,
-      "failed": 0
+      "failed": 1
     },
     "8": {
-      "completed": 0,
+      "completed": 1,
       "converged": 0,
-      "failed": 0
+      "failed": 1
     },
     "9": {
-      "completed": 0,
+      "completed": 1,
       "converged": 0,
-      "failed": 0
+      "failed": 1
     },
     "10": {
-      "completed": 0,
+      "completed": 1,
       "converged": 0,
-      "failed": 0
+      "failed": 1
     }
   },
-  "current_mof": "qmof-d38923a",
-  "current_pressure": 0.5,
+  "current_mof": "qmof-b4192d1",
+  "current_pressure": 0.1,
   "mof_set_info": {
-    "shard_file": "/workspace/shards/Xe_rear/shard_Xe_6.txt",
-    "shard_index": "6",
+    "shard_file": "/workspace/shards/Xe_rear/shard_Xe_5.txt",
+    "shard_index": "5",
     "n_mofs": 208
   }
 }
