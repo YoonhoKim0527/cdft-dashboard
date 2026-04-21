@@ -1,8 +1,8 @@
 {
   "adsorbate": "Xe",
   "server": "svr8",
-  "last_update": "2026-04-21T07:48:22.695142+00:00",
-  "start_time": "2026-04-21T07:09:44.832318+00:00",
+  "last_update": "2026-04-21T08:24:00.205334+00:00",
+  "start_time": "2026-04-21T08:08:14.422343+00:00",
   "total_mofs": 5,
   "pressures": [
     0.1,
@@ -20,23 +20,23 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 1,
-      "converged": 1,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "0.5": {
-      "completed": 1,
-      "converged": 1,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "1": {
-      "completed": 1,
-      "converged": 1,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "2": {
-      "completed": 1,
-      "converged": 1,
+      "completed": 2,
+      "converged": 2,
       "failed": 0
     },
     "3": {
@@ -45,45 +45,45 @@
       "failed": 0
     },
     "4": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "5": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "6": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "7": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "8": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "9": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     },
     "10": {
-      "completed": 0,
-      "converged": 0,
+      "completed": 1,
+      "converged": 1,
       "failed": 0
     }
   },
-  "current_mof": "qmof-0009829",
-  "current_pressure": 3.0,
+  "current_mof": "qmof-00980e4",
+  "current_pressure": 2.0,
   "mof_set_info": {
-    "shard_file": "/home/yoonho/exp037_solver/shards/xe_5.txt",
+    "shard_file": "/home/yoonho/exp037_solver/shards/xe_mid5.txt",
     "shard_index": "4",
     "n_mofs": 5
   }
