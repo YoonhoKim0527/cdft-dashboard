@@ -1,7 +1,7 @@
 {
   "adsorbate": "Kr",
   "server": "1b9c1701153b",
-  "last_update": "2026-04-21T08:29:44.391063+00:00",
+  "last_update": "2026-04-21T08:58:44.184858+00:00",
   "start_time": "2026-04-20T07:59:22.302630+00:00",
   "total_mofs": 579,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 328,
-      "converged": 323,
+      "completed": 335,
+      "converged": 330,
       "failed": 5
     },
     "0.5": {
-      "completed": 328,
-      "converged": 328,
+      "completed": 335,
+      "converged": 335,
       "failed": 0
     },
     "1": {
-      "completed": 327,
-      "converged": 326,
+      "completed": 335,
+      "converged": 334,
       "failed": 1
     },
     "2": {
-      "completed": 327,
-      "converged": 325,
-      "failed": 2
+      "completed": 335,
+      "converged": 332,
+      "failed": 3
     },
     "3": {
-      "completed": 327,
-      "converged": 323,
-      "failed": 4
+      "completed": 335,
+      "converged": 330,
+      "failed": 5
     },
     "4": {
-      "completed": 327,
-      "converged": 319,
-      "failed": 8
+      "completed": 335,
+      "converged": 326,
+      "failed": 9
     },
     "5": {
-      "completed": 327,
-      "converged": 317,
-      "failed": 10
+      "completed": 335,
+      "converged": 324,
+      "failed": 11
     },
     "6": {
-      "completed": 327,
-      "converged": 317,
+      "completed": 334,
+      "converged": 324,
       "failed": 10
     },
     "7": {
-      "completed": 327,
-      "converged": 315,
+      "completed": 334,
+      "converged": 322,
       "failed": 12
     },
     "8": {
-      "completed": 327,
-      "converged": 316,
+      "completed": 334,
+      "converged": 323,
       "failed": 11
     },
     "9": {
-      "completed": 327,
-      "converged": 315,
+      "completed": 334,
+      "converged": 322,
       "failed": 12
     },
     "10": {
-      "completed": 327,
-      "converged": 314,
+      "completed": 334,
+      "converged": 321,
       "failed": 13
     }
   },
-  "current_mof": "qmof-ff2f9c6",
-  "current_pressure": 0.5,
+  "current_mof": "qmof-ffb25f2",
+  "current_pressure": 5.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Kr/shard_Kr_7.txt",
     "shard_index": "7",
