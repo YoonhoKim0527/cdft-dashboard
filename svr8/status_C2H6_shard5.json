@@ -1,8 +1,8 @@
 {
   "adsorbate": "C2H6",
   "server": "svr8",
-  "last_update": "2026-04-21T05:44:57.742623+00:00",
-  "start_time": "2026-04-21T05:10:44.606573+00:00",
+  "last_update": "2026-04-21T06:28:41.173371+00:00",
+  "start_time": "2026-04-21T06:24:13.623251+00:00",
   "total_mofs": 5,
   "pressures": [
     0.1,
@@ -30,18 +30,18 @@
       "failed": 0
     },
     "1": {
-      "completed": 1,
-      "converged": 1,
+      "completed": 0,
+      "converged": 0,
       "failed": 0
     },
     "2": {
-      "completed": 1,
-      "converged": 1,
+      "completed": 0,
+      "converged": 0,
       "failed": 0
     },
     "3": {
-      "completed": 1,
-      "converged": 1,
+      "completed": 0,
+      "converged": 0,
       "failed": 0
     },
     "4": {
@@ -81,7 +81,7 @@
     }
   },
   "current_mof": "qmof-0009829",
-  "current_pressure": 3.0,
+  "current_pressure": 0.5,
   "mof_set_info": {
     "shard_file": "/home/yoonho/exp037_solver/shards/c2h6_5.txt",
     "shard_index": "5",
