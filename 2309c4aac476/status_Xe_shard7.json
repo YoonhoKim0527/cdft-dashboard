@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "xe-server",
-  "last_update": "2026-04-21T22:30:08.412805+00:00",
+  "last_update": "2026-04-21T23:00:01.829929+00:00",
   "start_time": "2026-04-21T12:10:45.172601+00:00",
   "total_mofs": 310,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 74,
-      "converged": 72,
+      "completed": 76,
+      "converged": 74,
       "failed": 2
     },
     "0.5": {
-      "completed": 74,
+      "completed": 76,
       "converged": 58,
-      "failed": 16
+      "failed": 18
     },
     "1": {
-      "completed": 74,
+      "completed": 76,
       "converged": 50,
-      "failed": 24
+      "failed": 26
     },
     "2": {
-      "completed": 74,
+      "completed": 76,
       "converged": 43,
-      "failed": 31
+      "failed": 33
     },
     "3": {
-      "completed": 74,
+      "completed": 76,
       "converged": 40,
-      "failed": 34
-    },
-    "4": {
-      "completed": 74,
-      "converged": 38,
       "failed": 36
     },
+    "4": {
+      "completed": 76,
+      "converged": 38,
+      "failed": 38
+    },
     "5": {
-      "completed": 74,
+      "completed": 76,
       "converged": 35,
-      "failed": 39
+      "failed": 41
     },
     "6": {
-      "completed": 74,
+      "completed": 76,
       "converged": 31,
-      "failed": 43
+      "failed": 45
     },
     "7": {
-      "completed": 73,
+      "completed": 76,
       "converged": 31,
-      "failed": 42
+      "failed": 45
     },
     "8": {
-      "completed": 73,
+      "completed": 75,
       "converged": 27,
-      "failed": 46
+      "failed": 48
     },
     "9": {
-      "completed": 73,
+      "completed": 75,
       "converged": 24,
-      "failed": 49
+      "failed": 51
     },
     "10": {
-      "completed": 73,
+      "completed": 75,
       "converged": 24,
-      "failed": 49
+      "failed": 51
     }
   },
-  "current_mof": "qmof-eda3909",
-  "current_pressure": 6.0,
+  "current_mof": "qmof-edbbc16",
+  "current_pressure": 7.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe/shard_Xe_7.txt",
     "shard_index": "7",
