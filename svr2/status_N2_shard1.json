@@ -1,7 +1,7 @@
 {
   "adsorbate": "N2",
   "server": "svr2",
-  "last_update": "2026-04-21T02:29:56.154096+00:00",
+  "last_update": "2026-04-21T02:59:25.764096+00:00",
   "start_time": "2026-04-19T16:09:31.233919+00:00",
   "total_mofs": 1527,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 564,
-      "converged": 540,
+      "completed": 572,
+      "converged": 548,
       "failed": 24
     },
     "0.5": {
-      "completed": 564,
-      "converged": 529,
+      "completed": 572,
+      "converged": 537,
       "failed": 35
     },
     "1": {
-      "completed": 564,
-      "converged": 525,
+      "completed": 572,
+      "converged": 533,
       "failed": 39
     },
     "2": {
-      "completed": 564,
-      "converged": 528,
+      "completed": 572,
+      "converged": 536,
       "failed": 36
     },
     "3": {
-      "completed": 564,
-      "converged": 528,
+      "completed": 571,
+      "converged": 535,
       "failed": 36
     },
     "4": {
-      "completed": 564,
-      "converged": 530,
+      "completed": 571,
+      "converged": 537,
       "failed": 34
     },
     "5": {
-      "completed": 564,
-      "converged": 531,
+      "completed": 571,
+      "converged": 538,
       "failed": 33
     },
     "6": {
-      "completed": 563,
-      "converged": 529,
+      "completed": 571,
+      "converged": 537,
       "failed": 34
     },
     "7": {
-      "completed": 563,
-      "converged": 530,
+      "completed": 571,
+      "converged": 538,
       "failed": 33
     },
     "8": {
-      "completed": 563,
-      "converged": 529,
+      "completed": 571,
+      "converged": 537,
       "failed": 34
     },
     "9": {
-      "completed": 563,
-      "converged": 529,
+      "completed": 571,
+      "converged": 537,
       "failed": 34
     },
     "10": {
-      "completed": 563,
-      "converged": 530,
+      "completed": 571,
+      "converged": 538,
       "failed": 33
     }
   },
-  "current_mof": "qmof-7434e5d",
-  "current_pressure": 5.0,
+  "current_mof": "qmof-74a8ca4",
+  "current_pressure": 2.0,
   "mof_set_info": {
     "shard_file": "/home/yoonho/multi_gas_package/shards/N2/shard_N2_1.txt",
     "shard_index": "1",
