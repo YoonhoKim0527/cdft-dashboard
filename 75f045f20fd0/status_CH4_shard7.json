@@ -1,7 +1,7 @@
 {
   "adsorbate": "CH4",
   "server": "75f045f20fd0",
-  "last_update": "2026-04-21T13:26:54.328199+00:00",
+  "last_update": "2026-04-21T14:00:03.255366+00:00",
   "start_time": "2026-04-21T11:35:55.906973+00:00",
   "total_mofs": 360,
   "pressures": [
@@ -32,8 +32,8 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 10,
-      "converged": 10,
+      "completed": 11,
+      "converged": 11,
       "failed": 0
     },
     "0.5": {
@@ -117,43 +117,43 @@
       "failed": 1
     },
     "35": {
-      "completed": 9,
+      "completed": 10,
       "converged": 9,
-      "failed": 0
+      "failed": 1
     },
     "40": {
-      "completed": 9,
+      "completed": 10,
       "converged": 9,
-      "failed": 0
+      "failed": 1
     },
     "45": {
-      "completed": 9,
+      "completed": 10,
       "converged": 9,
-      "failed": 0
+      "failed": 1
     },
     "50": {
-      "completed": 9,
+      "completed": 10,
       "converged": 9,
-      "failed": 0
+      "failed": 1
     },
     "55": {
-      "completed": 9,
+      "completed": 10,
       "converged": 9,
-      "failed": 0
+      "failed": 1
     },
     "60": {
-      "completed": 9,
+      "completed": 10,
       "converged": 9,
-      "failed": 0
+      "failed": 1
     },
     "65": {
-      "completed": 9,
+      "completed": 10,
       "converged": 9,
-      "failed": 0
+      "failed": 1
     }
   },
-  "current_mof": "qmof-e544014",
-  "current_pressure": 30.0,
+  "current_mof": "qmof-e54730e",
+  "current_pressure": 0.1,
   "mof_set_info": {
     "shard_file": "/workspace/shards/CH4/shard_CH4_7.txt",
     "shard_index": "7",
