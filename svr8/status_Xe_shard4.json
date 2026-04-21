@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "svr8",
-  "last_update": "2026-04-21T09:18:49.395816+00:00",
+  "last_update": "2026-04-21T09:54:40.312396+00:00",
   "start_time": "2026-04-21T08:08:14.422343+00:00",
   "total_mofs": 5,
   "pressures": [
@@ -60,14 +60,14 @@
       "failed": 1
     },
     "7": {
-      "completed": 1,
+      "completed": 2,
       "converged": 1,
-      "failed": 0
+      "failed": 1
     },
     "8": {
-      "completed": 1,
+      "completed": 2,
       "converged": 1,
-      "failed": 0
+      "failed": 1
     },
     "9": {
       "completed": 1,
@@ -81,7 +81,7 @@
     }
   },
   "current_mof": "qmof-00980e4",
-  "current_pressure": 6.0,
+  "current_pressure": 8.0,
   "mof_set_info": {
     "shard_file": "/home/yoonho/exp037_solver/shards/xe_mid5.txt",
     "shard_index": "4",
