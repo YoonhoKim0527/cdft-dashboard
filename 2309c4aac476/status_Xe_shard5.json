@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "xe-server",
-  "last_update": "2026-04-21T14:28:48.802740+00:00",
+  "last_update": "2026-04-21T14:59:37.610892+00:00",
   "start_time": "2026-04-21T12:10:45.188172+00:00",
   "total_mofs": 310,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 12,
-      "converged": 12,
+      "completed": 14,
+      "converged": 14,
       "failed": 0
     },
     "0.5": {
-      "completed": 12,
+      "completed": 14,
       "converged": 10,
-      "failed": 2
+      "failed": 4
     },
     "1": {
-      "completed": 12,
+      "completed": 14,
       "converged": 7,
-      "failed": 5
+      "failed": 7
     },
     "2": {
-      "completed": 12,
+      "completed": 13,
       "converged": 4,
-      "failed": 8
+      "failed": 9
     },
     "3": {
-      "completed": 12,
+      "completed": 13,
       "converged": 4,
-      "failed": 8
+      "failed": 9
     },
     "4": {
-      "completed": 12,
+      "completed": 13,
       "converged": 4,
-      "failed": 8
+      "failed": 9
     },
     "5": {
-      "completed": 12,
+      "completed": 13,
       "converged": 4,
-      "failed": 8
+      "failed": 9
     },
     "6": {
-      "completed": 12,
+      "completed": 13,
       "converged": 4,
-      "failed": 8
+      "failed": 9
     },
     "7": {
-      "completed": 11,
+      "completed": 13,
       "converged": 4,
-      "failed": 7
+      "failed": 9
     },
     "8": {
-      "completed": 11,
+      "completed": 13,
       "converged": 4,
-      "failed": 7
+      "failed": 9
     },
     "9": {
-      "completed": 11,
+      "completed": 13,
       "converged": 4,
-      "failed": 7
+      "failed": 9
     },
     "10": {
-      "completed": 11,
+      "completed": 13,
       "converged": 4,
-      "failed": 7
+      "failed": 9
     }
   },
-  "current_mof": "qmof-a8dd8d4",
-  "current_pressure": 6.0,
+  "current_mof": "qmof-a8ea913",
+  "current_pressure": 1.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe/shard_Xe_5.txt",
     "shard_index": "5",
