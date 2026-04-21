@@ -1,7 +1,7 @@
 {
   "adsorbate": "C2H6",
   "server": "113ac159923b",
-  "last_update": "2026-04-21T00:30:13.336945+00:00",
+  "last_update": "2026-04-21T00:59:59.098894+00:00",
   "start_time": "2026-04-20T07:58:57.512564+00:00",
   "total_mofs": 465,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 60,
-      "converged": 56,
+      "completed": 61,
+      "converged": 57,
       "failed": 4
     },
     "0.5": {
-      "completed": 60,
-      "converged": 56,
+      "completed": 61,
+      "converged": 57,
       "failed": 4
     },
     "1": {
-      "completed": 59,
-      "converged": 53,
+      "completed": 61,
+      "converged": 55,
       "failed": 6
     },
     "2": {
-      "completed": 59,
-      "converged": 52,
-      "failed": 7
+      "completed": 61,
+      "converged": 53,
+      "failed": 8
     },
     "3": {
-      "completed": 59,
-      "converged": 49,
-      "failed": 10
-    },
-    "4": {
-      "completed": 59,
+      "completed": 61,
       "converged": 50,
-      "failed": 9
-    },
-    "5": {
-      "completed": 59,
-      "converged": 48,
       "failed": 11
     },
+    "4": {
+      "completed": 61,
+      "converged": 51,
+      "failed": 10
+    },
+    "5": {
+      "completed": 61,
+      "converged": 48,
+      "failed": 13
+    },
     "6": {
-      "completed": 59,
+      "completed": 61,
       "converged": 45,
-      "failed": 14
+      "failed": 16
     },
     "7": {
-      "completed": 59,
+      "completed": 61,
       "converged": 44,
-      "failed": 15
+      "failed": 17
     },
     "8": {
-      "completed": 59,
+      "completed": 60,
       "converged": 41,
-      "failed": 18
+      "failed": 19
     },
     "9": {
-      "completed": 59,
+      "completed": 60,
       "converged": 41,
-      "failed": 18
+      "failed": 19
     },
     "10": {
-      "completed": 59,
+      "completed": 60,
       "converged": 41,
-      "failed": 18
+      "failed": 19
     }
   },
-  "current_mof": "qmof-833ee2a",
-  "current_pressure": 0.5,
+  "current_mof": "qmof-834ccb4",
+  "current_pressure": 7.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/C2H6/shard_C2H6_4.txt",
     "shard_index": "4",
