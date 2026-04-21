@@ -1,7 +1,7 @@
 {
   "adsorbate": "CH4",
   "server": "75f045f20fd0",
-  "last_update": "2026-04-21T02:23:25.678542+00:00",
+  "last_update": "2026-04-21T02:59:14.662049+00:00",
   "start_time": "2026-04-20T11:24:13.940173+00:00",
   "total_mofs": 545,
   "pressures": [
@@ -32,128 +32,128 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 53,
-      "converged": 53,
+      "completed": 54,
+      "converged": 54,
       "failed": 0
     },
     "0.5": {
-      "completed": 53,
-      "converged": 53,
+      "completed": 54,
+      "converged": 54,
       "failed": 0
     },
     "1": {
-      "completed": 53,
-      "converged": 52,
+      "completed": 54,
+      "converged": 53,
       "failed": 1
     },
     "2": {
-      "completed": 53,
-      "converged": 53,
+      "completed": 54,
+      "converged": 54,
       "failed": 0
     },
     "3": {
-      "completed": 53,
-      "converged": 53,
+      "completed": 54,
+      "converged": 54,
       "failed": 0
     },
     "4": {
-      "completed": 53,
-      "converged": 53,
+      "completed": 54,
+      "converged": 54,
       "failed": 0
     },
     "5": {
-      "completed": 53,
-      "converged": 53,
+      "completed": 54,
+      "converged": 54,
       "failed": 0
     },
     "5.8": {
-      "completed": 53,
-      "converged": 53,
+      "completed": 54,
+      "converged": 54,
       "failed": 0
     },
     "6": {
-      "completed": 53,
-      "converged": 52,
+      "completed": 54,
+      "converged": 53,
       "failed": 1
     },
     "7": {
-      "completed": 53,
-      "converged": 53,
+      "completed": 54,
+      "converged": 54,
       "failed": 0
     },
     "8": {
-      "completed": 53,
-      "converged": 53,
+      "completed": 54,
+      "converged": 54,
       "failed": 0
     },
     "9": {
-      "completed": 53,
-      "converged": 53,
+      "completed": 54,
+      "converged": 54,
       "failed": 0
     },
     "10": {
-      "completed": 53,
-      "converged": 53,
+      "completed": 54,
+      "converged": 54,
       "failed": 0
     },
     "15": {
-      "completed": 53,
-      "converged": 49,
+      "completed": 54,
+      "converged": 50,
       "failed": 4
     },
     "20": {
-      "completed": 52,
-      "converged": 49,
+      "completed": 54,
+      "converged": 51,
       "failed": 3
     },
     "25": {
-      "completed": 52,
-      "converged": 47,
-      "failed": 5
+      "completed": 54,
+      "converged": 48,
+      "failed": 6
     },
     "30": {
-      "completed": 52,
-      "converged": 47,
-      "failed": 5
+      "completed": 54,
+      "converged": 48,
+      "failed": 6
     },
     "35": {
-      "completed": 52,
-      "converged": 47,
-      "failed": 5
+      "completed": 54,
+      "converged": 48,
+      "failed": 6
     },
     "40": {
-      "completed": 52,
-      "converged": 47,
-      "failed": 5
+      "completed": 54,
+      "converged": 48,
+      "failed": 6
     },
     "45": {
-      "completed": 52,
-      "converged": 46,
-      "failed": 6
-    },
-    "50": {
-      "completed": 52,
-      "converged": 46,
-      "failed": 6
-    },
-    "55": {
-      "completed": 52,
-      "converged": 45,
+      "completed": 54,
+      "converged": 47,
       "failed": 7
     },
-    "60": {
-      "completed": 52,
-      "converged": 44,
+    "50": {
+      "completed": 54,
+      "converged": 47,
+      "failed": 7
+    },
+    "55": {
+      "completed": 54,
+      "converged": 46,
       "failed": 8
     },
-    "65": {
-      "completed": 52,
-      "converged": 43,
+    "60": {
+      "completed": 54,
+      "converged": 45,
       "failed": 9
+    },
+    "65": {
+      "completed": 53,
+      "converged": 43,
+      "failed": 10
     }
   },
-  "current_mof": "qmof-6182d5e",
-  "current_pressure": 15.0,
+  "current_mof": "qmof-61991de",
+  "current_pressure": 60.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/CH4/shard_CH4_3.txt",
     "shard_index": "3",
