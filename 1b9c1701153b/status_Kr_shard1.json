@@ -1,7 +1,7 @@
 {
   "adsorbate": "Kr",
   "server": "1b9c1701153b",
-  "last_update": "2026-04-21T04:59:20.273977+00:00",
+  "last_update": "2026-04-21T05:29:59.491709+00:00",
   "start_time": "2026-04-20T07:59:22.295596+00:00",
   "total_mofs": 579,
   "pressures": [
@@ -20,67 +20,67 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 295,
-      "converged": 289,
+      "completed": 303,
+      "converged": 297,
       "failed": 6
     },
     "0.5": {
-      "completed": 295,
-      "converged": 295,
+      "completed": 303,
+      "converged": 303,
       "failed": 0
     },
     "1": {
-      "completed": 295,
-      "converged": 295,
+      "completed": 303,
+      "converged": 303,
       "failed": 0
     },
     "2": {
-      "completed": 295,
-      "converged": 295,
+      "completed": 303,
+      "converged": 303,
       "failed": 0
     },
     "3": {
-      "completed": 295,
-      "converged": 294,
+      "completed": 303,
+      "converged": 302,
       "failed": 1
     },
     "4": {
-      "completed": 295,
-      "converged": 292,
+      "completed": 303,
+      "converged": 300,
       "failed": 3
     },
     "5": {
-      "completed": 295,
-      "converged": 292,
+      "completed": 303,
+      "converged": 300,
       "failed": 3
     },
     "6": {
-      "completed": 295,
-      "converged": 291,
+      "completed": 303,
+      "converged": 299,
       "failed": 4
     },
     "7": {
-      "completed": 295,
-      "converged": 291,
+      "completed": 303,
+      "converged": 299,
       "failed": 4
     },
     "8": {
-      "completed": 295,
-      "converged": 289,
+      "completed": 303,
+      "converged": 297,
       "failed": 6
     },
     "9": {
-      "completed": 294,
-      "converged": 284,
+      "completed": 302,
+      "converged": 292,
       "failed": 10
     },
     "10": {
-      "completed": 294,
-      "converged": 283,
+      "completed": 302,
+      "converged": 291,
       "failed": 11
     }
   },
-  "current_mof": "qmof-3bb2216",
+  "current_mof": "qmof-3bf57c7",
   "current_pressure": 8.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Kr/shard_Kr_1.txt",
