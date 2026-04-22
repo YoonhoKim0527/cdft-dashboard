@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "Xe_2",
-  "last_update": "2026-04-22T17:10:32.091421+00:00",
+  "last_update": "2026-04-22T23:45:57.703921+00:00",
   "start_time": "2026-04-22T04:31:50.358420+00:00",
   "total_mofs": 208,
   "pressures": [
@@ -20,64 +20,64 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 42,
-      "converged": 39,
-      "failed": 3
+      "completed": 208,
+      "converged": 203,
+      "failed": 5
     },
     "0.5": {
-      "completed": 42,
-      "converged": 38,
-      "failed": 4
+      "completed": 208,
+      "converged": 180,
+      "failed": 28
     },
     "1": {
-      "completed": 42,
-      "converged": 35,
-      "failed": 7
+      "completed": 208,
+      "converged": 158,
+      "failed": 50
     },
     "2": {
-      "completed": 42,
-      "converged": 31,
-      "failed": 11
+      "completed": 208,
+      "converged": 131,
+      "failed": 77
     },
     "3": {
-      "completed": 42,
-      "converged": 28,
-      "failed": 14
+      "completed": 208,
+      "converged": 116,
+      "failed": 92
     },
     "4": {
-      "completed": 42,
-      "converged": 28,
-      "failed": 14
+      "completed": 208,
+      "converged": 102,
+      "failed": 106
     },
     "5": {
-      "completed": 42,
-      "converged": 26,
-      "failed": 16
+      "completed": 208,
+      "converged": 95,
+      "failed": 113
     },
     "6": {
-      "completed": 42,
-      "converged": 24,
-      "failed": 18
+      "completed": 208,
+      "converged": 84,
+      "failed": 124
     },
     "7": {
-      "completed": 42,
-      "converged": 24,
-      "failed": 18
+      "completed": 208,
+      "converged": 77,
+      "failed": 131
     },
     "8": {
-      "completed": 42,
-      "converged": 23,
-      "failed": 19
+      "completed": 208,
+      "converged": 73,
+      "failed": 135
     },
     "9": {
-      "completed": 42,
-      "converged": 23,
-      "failed": 19
+      "completed": 208,
+      "converged": 69,
+      "failed": 139
     },
     "10": {
-      "completed": 42,
-      "converged": 23,
-      "failed": 19
+      "completed": 208,
+      "converged": 67,
+      "failed": 141
     }
   },
   "current_mof": "qmof-1ebeece",
