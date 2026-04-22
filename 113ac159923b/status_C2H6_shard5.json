@@ -1,7 +1,7 @@
 {
   "adsorbate": "C2H6",
   "server": "113ac159923b",
-  "last_update": "2026-04-22T16:29:46.238198+00:00",
+  "last_update": "2026-04-22T16:59:49.884967+00:00",
   "start_time": "2026-04-22T11:52:40.497704+00:00",
   "total_mofs": 465,
   "pressures": [
@@ -20,59 +20,59 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 295,
-      "converged": 278,
+      "completed": 296,
+      "converged": 279,
       "failed": 17
     },
     "0.5": {
-      "completed": 295,
-      "converged": 264,
+      "completed": 296,
+      "converged": 265,
       "failed": 31
     },
     "1": {
-      "completed": 295,
-      "converged": 255,
+      "completed": 296,
+      "converged": 256,
       "failed": 40
     },
     "2": {
-      "completed": 295,
-      "converged": 238,
+      "completed": 296,
+      "converged": 239,
       "failed": 57
     },
     "3": {
-      "completed": 295,
-      "converged": 225,
+      "completed": 296,
+      "converged": 226,
       "failed": 70
     },
     "4": {
-      "completed": 295,
+      "completed": 296,
       "converged": 219,
-      "failed": 76
+      "failed": 77
     },
     "5": {
-      "completed": 295,
-      "converged": 216,
+      "completed": 296,
+      "converged": 217,
       "failed": 79
     },
     "6": {
-      "completed": 295,
-      "converged": 211,
+      "completed": 296,
+      "converged": 212,
       "failed": 84
     },
     "7": {
-      "completed": 295,
-      "converged": 209,
+      "completed": 296,
+      "converged": 210,
       "failed": 86
     },
     "8": {
-      "completed": 295,
-      "converged": 205,
+      "completed": 296,
+      "converged": 206,
       "failed": 90
     },
     "9": {
-      "completed": 295,
+      "completed": 296,
       "converged": 202,
-      "failed": 93
+      "failed": 94
     },
     "10": {
       "completed": 295,
@@ -81,7 +81,7 @@
     }
   },
   "current_mof": "qmof-b56841f",
-  "current_pressure": 0.1,
+  "current_pressure": 9.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/C2H6/shard_C2H6_5.txt",
     "shard_index": "5",
