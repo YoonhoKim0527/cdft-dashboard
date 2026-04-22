@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "xe-server",
-  "last_update": "2026-04-21T23:59:42.267380+00:00",
+  "last_update": "2026-04-22T00:29:58.155749+00:00",
   "start_time": "2026-04-21T12:10:45.191097+00:00",
   "total_mofs": 310,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 73,
-      "converged": 69,
+      "completed": 76,
+      "converged": 72,
       "failed": 4
     },
     "0.5": {
-      "completed": 73,
-      "converged": 59,
-      "failed": 14
+      "completed": 76,
+      "converged": 61,
+      "failed": 15
     },
     "1": {
-      "completed": 73,
-      "converged": 53,
-      "failed": 20
+      "completed": 76,
+      "converged": 55,
+      "failed": 21
     },
     "2": {
-      "completed": 73,
-      "converged": 47,
-      "failed": 26
+      "completed": 76,
+      "converged": 48,
+      "failed": 28
     },
     "3": {
-      "completed": 73,
-      "converged": 38,
-      "failed": 35
-    },
-    "4": {
-      "completed": 73,
-      "converged": 37,
+      "completed": 75,
+      "converged": 39,
       "failed": 36
     },
+    "4": {
+      "completed": 75,
+      "converged": 38,
+      "failed": 37
+    },
     "5": {
-      "completed": 73,
-      "converged": 34,
-      "failed": 39
+      "completed": 75,
+      "converged": 35,
+      "failed": 40
     },
     "6": {
-      "completed": 73,
-      "converged": 30,
-      "failed": 43
+      "completed": 75,
+      "converged": 31,
+      "failed": 44
     },
     "7": {
-      "completed": 73,
-      "converged": 26,
-      "failed": 47
+      "completed": 75,
+      "converged": 27,
+      "failed": 48
     },
     "8": {
-      "completed": 73,
-      "converged": 26,
-      "failed": 47
+      "completed": 75,
+      "converged": 27,
+      "failed": 48
     },
     "9": {
-      "completed": 72,
-      "converged": 25,
-      "failed": 47
+      "completed": 75,
+      "converged": 26,
+      "failed": 49
     },
     "10": {
-      "completed": 72,
-      "converged": 24,
-      "failed": 48
+      "completed": 75,
+      "converged": 25,
+      "failed": 50
     }
   },
-  "current_mof": "qmof-cc249f5",
-  "current_pressure": 8.0,
+  "current_mof": "qmof-cc4c6c7",
+  "current_pressure": 2.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe/shard_Xe_6.txt",
     "shard_index": "6",
