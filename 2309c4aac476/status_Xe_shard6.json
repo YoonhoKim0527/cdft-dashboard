@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "xe-server",
-  "last_update": "2026-04-22T07:29:43.310432+00:00",
+  "last_update": "2026-04-22T07:55:16.468968+00:00",
   "start_time": "2026-04-22T04:32:07.612005+00:00",
   "total_mofs": 310,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 7,
-      "converged": 6,
+      "completed": 9,
+      "converged": 8,
       "failed": 1
     },
     "0.5": {
-      "completed": 7,
-      "converged": 6,
+      "completed": 8,
+      "converged": 7,
       "failed": 1
     },
     "1": {
-      "completed": 7,
-      "converged": 5,
+      "completed": 8,
+      "converged": 6,
       "failed": 2
     },
     "2": {
-      "completed": 7,
-      "converged": 5,
+      "completed": 8,
+      "converged": 6,
       "failed": 2
     },
     "3": {
-      "completed": 7,
-      "converged": 5,
+      "completed": 8,
+      "converged": 6,
       "failed": 2
     },
     "4": {
-      "completed": 7,
-      "converged": 4,
+      "completed": 8,
+      "converged": 5,
       "failed": 3
     },
     "5": {
-      "completed": 7,
-      "converged": 4,
+      "completed": 8,
+      "converged": 5,
       "failed": 3
     },
     "6": {
-      "completed": 6,
-      "converged": 2,
+      "completed": 8,
+      "converged": 4,
       "failed": 4
     },
     "7": {
-      "completed": 6,
-      "converged": 2,
+      "completed": 8,
+      "converged": 4,
       "failed": 4
     },
     "8": {
-      "completed": 6,
-      "converged": 2,
+      "completed": 8,
+      "converged": 4,
       "failed": 4
     },
     "9": {
-      "completed": 6,
-      "converged": 2,
+      "completed": 8,
+      "converged": 4,
       "failed": 4
     },
     "10": {
-      "completed": 6,
-      "converged": 2,
+      "completed": 8,
+      "converged": 4,
       "failed": 4
     }
   },
-  "current_mof": "qmof-cd9c899",
-  "current_pressure": 5.0,
+  "current_mof": "qmof-cd9e11c",
+  "current_pressure": 0.1,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe/shard_Xe_6.txt",
     "shard_index": "6",

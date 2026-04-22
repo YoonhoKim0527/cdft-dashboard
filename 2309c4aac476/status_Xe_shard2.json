@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "xe-server",
-  "last_update": "2026-04-22T07:28:51.931725+00:00",
+  "last_update": "2026-04-22T07:59:39.335813+00:00",
   "start_time": "2026-04-22T04:32:07.587215+00:00",
   "total_mofs": 311,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 5,
-      "converged": 5,
+      "completed": 7,
+      "converged": 7,
       "failed": 0
     },
     "0.5": {
-      "completed": 5,
-      "converged": 5,
+      "completed": 7,
+      "converged": 7,
       "failed": 0
     },
     "1": {
-      "completed": 5,
-      "converged": 5,
+      "completed": 7,
+      "converged": 7,
       "failed": 0
     },
     "2": {
-      "completed": 5,
+      "completed": 6,
       "converged": 4,
-      "failed": 1
+      "failed": 2
     },
     "3": {
-      "completed": 5,
+      "completed": 6,
       "converged": 3,
-      "failed": 2
+      "failed": 3
     },
     "4": {
-      "completed": 5,
+      "completed": 6,
       "converged": 2,
-      "failed": 3
+      "failed": 4
     },
     "5": {
-      "completed": 5,
+      "completed": 6,
       "converged": 2,
-      "failed": 3
+      "failed": 4
     },
     "6": {
-      "completed": 5,
+      "completed": 6,
       "converged": 2,
-      "failed": 3
+      "failed": 4
     },
     "7": {
-      "completed": 5,
+      "completed": 6,
       "converged": 2,
-      "failed": 3
+      "failed": 4
     },
     "8": {
-      "completed": 5,
+      "completed": 6,
       "converged": 2,
-      "failed": 3
+      "failed": 4
     },
     "9": {
-      "completed": 4,
+      "completed": 6,
       "converged": 2,
-      "failed": 2
+      "failed": 4
     },
     "10": {
-      "completed": 4,
+      "completed": 6,
       "converged": 2,
-      "failed": 2
+      "failed": 4
     }
   },
-  "current_mof": "qmof-4c4d6c3",
-  "current_pressure": 8.0,
+  "current_mof": "qmof-4c74de4",
+  "current_pressure": 1.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe/shard_Xe_2.txt",
     "shard_index": "2",
