@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "Xe_2",
-  "last_update": "2026-04-22T06:28:25.453379+00:00",
+  "last_update": "2026-04-22T06:59:58.637520+00:00",
   "start_time": "2026-04-22T04:31:50.359956+00:00",
   "total_mofs": 208,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 5,
-      "converged": 5,
+      "completed": 7,
+      "converged": 7,
       "failed": 0
     },
     "0.5": {
-      "completed": 5,
-      "converged": 4,
+      "completed": 7,
+      "converged": 6,
       "failed": 1
     },
     "1": {
-      "completed": 5,
-      "converged": 3,
+      "completed": 7,
+      "converged": 5,
       "failed": 2
     },
     "2": {
-      "completed": 5,
-      "converged": 3,
+      "completed": 7,
+      "converged": 5,
       "failed": 2
     },
     "3": {
-      "completed": 5,
-      "converged": 3,
+      "completed": 7,
+      "converged": 5,
       "failed": 2
     },
     "4": {
-      "completed": 5,
+      "completed": 6,
       "converged": 2,
-      "failed": 3
+      "failed": 4
     },
     "5": {
-      "completed": 5,
+      "completed": 6,
       "converged": 2,
-      "failed": 3
+      "failed": 4
     },
     "6": {
-      "completed": 5,
+      "completed": 6,
       "converged": 2,
-      "failed": 3
+      "failed": 4
     },
     "7": {
-      "completed": 5,
+      "completed": 6,
       "converged": 2,
-      "failed": 3
+      "failed": 4
     },
     "8": {
-      "completed": 4,
+      "completed": 6,
       "converged": 1,
-      "failed": 3
+      "failed": 5
     },
     "9": {
-      "completed": 4,
+      "completed": 6,
       "converged": 0,
-      "failed": 4
+      "failed": 6
     },
     "10": {
-      "completed": 4,
+      "completed": 6,
       "converged": 0,
-      "failed": 4
+      "failed": 6
     }
   },
-  "current_mof": "qmof-5b8487c",
-  "current_pressure": 7.0,
+  "current_mof": "qmof-5bce2a7",
+  "current_pressure": 3.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe_rear/shard_Xe_2.txt",
     "shard_index": "2",
