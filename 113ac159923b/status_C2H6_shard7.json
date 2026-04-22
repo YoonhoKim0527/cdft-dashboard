@@ -1,7 +1,7 @@
 {
   "adsorbate": "C2H6",
   "server": "113ac159923b",
-  "last_update": "2026-04-22T12:55:34.291880+00:00",
+  "last_update": "2026-04-22T13:26:13.055288+00:00",
   "start_time": "2026-04-22T11:52:40.510107+00:00",
   "total_mofs": 464,
   "pressures": [
@@ -20,8 +20,8 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 281,
-      "converged": 271,
+      "completed": 282,
+      "converged": 272,
       "failed": 10
     },
     "0.5": {
@@ -30,58 +30,58 @@
       "failed": 22
     },
     "1": {
-      "completed": 280,
+      "completed": 281,
       "converged": 243,
-      "failed": 37
+      "failed": 38
     },
     "2": {
-      "completed": 280,
+      "completed": 281,
       "converged": 223,
-      "failed": 57
+      "failed": 58
     },
     "3": {
-      "completed": 280,
+      "completed": 281,
       "converged": 216,
-      "failed": 64
+      "failed": 65
     },
     "4": {
-      "completed": 280,
+      "completed": 281,
       "converged": 206,
-      "failed": 74
+      "failed": 75
     },
     "5": {
-      "completed": 280,
+      "completed": 281,
       "converged": 200,
-      "failed": 80
+      "failed": 81
     },
     "6": {
-      "completed": 280,
+      "completed": 281,
       "converged": 197,
-      "failed": 83
+      "failed": 84
     },
     "7": {
-      "completed": 280,
+      "completed": 281,
       "converged": 192,
-      "failed": 88
+      "failed": 89
     },
     "8": {
-      "completed": 280,
+      "completed": 281,
       "converged": 188,
-      "failed": 92
+      "failed": 93
     },
     "9": {
-      "completed": 280,
+      "completed": 281,
       "converged": 186,
-      "failed": 94
+      "failed": 95
     },
     "10": {
-      "completed": 280,
+      "completed": 281,
       "converged": 183,
-      "failed": 97
+      "failed": 98
     }
   },
-  "current_mof": "qmof-f32e851",
-  "current_pressure": 0.5,
+  "current_mof": "qmof-f346b8b",
+  "current_pressure": 0.1,
   "mof_set_info": {
     "shard_file": "/workspace/shards/C2H6/shard_C2H6_7.txt",
     "shard_index": "7",
