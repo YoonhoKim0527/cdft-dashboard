@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "Xe_2",
-  "last_update": "2026-04-22T11:56:26.803536+00:00",
+  "last_update": "2026-04-22T12:30:00.259804+00:00",
   "start_time": "2026-04-22T04:31:50.393827+00:00",
   "total_mofs": 208,
   "pressures": [
@@ -20,67 +20,67 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 23,
-      "converged": 22,
+      "completed": 27,
+      "converged": 26,
       "failed": 1
     },
     "0.5": {
-      "completed": 23,
-      "converged": 19,
+      "completed": 27,
+      "converged": 23,
       "failed": 4
     },
     "1": {
-      "completed": 23,
-      "converged": 17,
+      "completed": 27,
+      "converged": 21,
       "failed": 6
     },
     "2": {
-      "completed": 23,
-      "converged": 15,
+      "completed": 27,
+      "converged": 19,
       "failed": 8
     },
     "3": {
-      "completed": 23,
-      "converged": 12,
+      "completed": 27,
+      "converged": 16,
       "failed": 11
     },
     "4": {
-      "completed": 23,
-      "converged": 11,
+      "completed": 27,
+      "converged": 15,
       "failed": 12
     },
     "5": {
-      "completed": 23,
-      "converged": 12,
+      "completed": 27,
+      "converged": 16,
       "failed": 11
     },
     "6": {
-      "completed": 23,
-      "converged": 11,
+      "completed": 27,
+      "converged": 15,
       "failed": 12
     },
     "7": {
-      "completed": 23,
-      "converged": 11,
+      "completed": 27,
+      "converged": 15,
       "failed": 12
     },
     "8": {
-      "completed": 23,
-      "converged": 10,
-      "failed": 13
+      "completed": 27,
+      "converged": 13,
+      "failed": 14
     },
     "9": {
-      "completed": 23,
-      "converged": 9,
+      "completed": 27,
+      "converged": 13,
       "failed": 14
     },
     "10": {
-      "completed": 22,
-      "converged": 8,
-      "failed": 14
+      "completed": 26,
+      "converged": 11,
+      "failed": 15
     }
   },
-  "current_mof": "qmof-3c1695e",
+  "current_mof": "qmof-3c4fdf0",
   "current_pressure": 9.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe_rear/shard_Xe_1.txt",

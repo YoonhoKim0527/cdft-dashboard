@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "Xe_2",
-  "last_update": "2026-04-22T11:56:53.225667+00:00",
+  "last_update": "2026-04-22T12:29:42.936956+00:00",
   "start_time": "2026-04-22T04:31:50.359956+00:00",
   "total_mofs": 208,
   "pressures": [
@@ -20,67 +20,67 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 28,
-      "converged": 26,
+      "completed": 29,
+      "converged": 27,
       "failed": 2
     },
     "0.5": {
-      "completed": 28,
-      "converged": 25,
+      "completed": 29,
+      "converged": 26,
       "failed": 3
     },
     "1": {
-      "completed": 28,
-      "converged": 23,
+      "completed": 29,
+      "converged": 24,
       "failed": 5
     },
     "2": {
-      "completed": 28,
+      "completed": 29,
       "converged": 20,
-      "failed": 8
+      "failed": 9
     },
     "3": {
-      "completed": 28,
+      "completed": 29,
       "converged": 20,
-      "failed": 8
+      "failed": 9
     },
     "4": {
-      "completed": 28,
+      "completed": 29,
       "converged": 16,
-      "failed": 12
+      "failed": 13
     },
     "5": {
-      "completed": 28,
+      "completed": 29,
       "converged": 14,
-      "failed": 14
+      "failed": 15
     },
     "6": {
-      "completed": 28,
+      "completed": 29,
       "converged": 14,
-      "failed": 14
+      "failed": 15
     },
     "7": {
-      "completed": 28,
+      "completed": 29,
       "converged": 13,
-      "failed": 15
+      "failed": 16
     },
     "8": {
-      "completed": 27,
+      "completed": 28,
       "converged": 12,
-      "failed": 15
+      "failed": 16
     },
     "9": {
-      "completed": 27,
+      "completed": 28,
       "converged": 10,
-      "failed": 17
+      "failed": 18
     },
     "10": {
-      "completed": 27,
+      "completed": 28,
       "converged": 10,
-      "failed": 17
+      "failed": 18
     }
   },
-  "current_mof": "qmof-5d03e27",
+  "current_mof": "qmof-5d05c82",
   "current_pressure": 7.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe_rear/shard_Xe_2.txt",
