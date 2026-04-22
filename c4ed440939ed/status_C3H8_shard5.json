@@ -1,8 +1,8 @@
 {
   "adsorbate": "C3H8",
   "server": "c4ed440939ed",
-  "last_update": "2026-04-21T17:29:15.380138+00:00",
-  "start_time": "2026-04-21T12:13:43.568830+00:00",
+  "last_update": "2026-04-22T05:56:26.512332+00:00",
+  "start_time": "2026-04-22T04:31:48.910053+00:00",
   "total_mofs": 478,
   "pressures": [
     0.1,
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 201,
-      "converged": 179,
-      "failed": 22
+      "completed": 305,
+      "converged": 273,
+      "failed": 32
     },
     "0.5": {
-      "completed": 201,
-      "converged": 146,
-      "failed": 55
+      "completed": 305,
+      "converged": 209,
+      "failed": 96
     },
     "1": {
-      "completed": 201,
-      "converged": 131,
-      "failed": 70
+      "completed": 305,
+      "converged": 174,
+      "failed": 131
     },
     "2": {
-      "completed": 201,
-      "converged": 108,
-      "failed": 93
+      "completed": 305,
+      "converged": 146,
+      "failed": 159
     },
     "3": {
-      "completed": 201,
-      "converged": 101,
-      "failed": 100
+      "completed": 305,
+      "converged": 134,
+      "failed": 171
     },
     "4": {
-      "completed": 201,
-      "converged": 98,
-      "failed": 103
+      "completed": 305,
+      "converged": 129,
+      "failed": 176
     },
     "5": {
-      "completed": 201,
-      "converged": 91,
-      "failed": 110
+      "completed": 305,
+      "converged": 117,
+      "failed": 188
     },
     "6": {
-      "completed": 201,
-      "converged": 83,
-      "failed": 118
+      "completed": 305,
+      "converged": 107,
+      "failed": 198
     },
     "7": {
-      "completed": 201,
-      "converged": 81,
-      "failed": 120
+      "completed": 305,
+      "converged": 104,
+      "failed": 201
     },
     "8": {
-      "completed": 200,
-      "converged": 79,
-      "failed": 121
+      "completed": 305,
+      "converged": 99,
+      "failed": 206
     },
     "9": {
-      "completed": 200,
-      "converged": 80,
-      "failed": 120
+      "completed": 304,
+      "converged": 99,
+      "failed": 205
     },
     "10": {
-      "completed": 200,
-      "converged": 75,
-      "failed": 125
+      "completed": 304,
+      "converged": 94,
+      "failed": 210
     }
   },
-  "current_mof": "qmof-ae3c113",
-  "current_pressure": 7.0,
+  "current_mof": "qmof-b5f02ff",
+  "current_pressure": 8.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/C3H8/shard_C3H8_5.txt",
     "shard_index": "5",
