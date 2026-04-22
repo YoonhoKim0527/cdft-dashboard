@@ -1,7 +1,7 @@
 {
   "adsorbate": "C2H6",
   "server": "113ac159923b",
-  "last_update": "2026-04-22T18:59:40.138427+00:00",
+  "last_update": "2026-04-22T19:27:13.504705+00:00",
   "start_time": "2026-04-22T11:52:40.507753+00:00",
   "total_mofs": 464,
   "pressures": [
@@ -45,34 +45,34 @@
       "failed": 66
     },
     "4": {
-      "completed": 266,
+      "completed": 267,
       "converged": 187,
-      "failed": 79
-    },
-    "5": {
-      "completed": 266,
-      "converged": 186,
       "failed": 80
     },
+    "5": {
+      "completed": 267,
+      "converged": 186,
+      "failed": 81
+    },
     "6": {
-      "completed": 266,
+      "completed": 267,
       "converged": 182,
-      "failed": 84
+      "failed": 85
     },
     "7": {
-      "completed": 266,
+      "completed": 267,
       "converged": 176,
-      "failed": 90
+      "failed": 91
     },
     "8": {
-      "completed": 266,
+      "completed": 267,
       "converged": 174,
-      "failed": 92
+      "failed": 93
     },
     "9": {
-      "completed": 266,
+      "completed": 267,
       "converged": 171,
-      "failed": 95
+      "failed": 96
     },
     "10": {
       "completed": 266,
@@ -81,7 +81,7 @@
     }
   },
   "current_mof": "qmof-d378af7",
-  "current_pressure": 3.0,
+  "current_pressure": 9.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/C2H6/shard_C2H6_6.txt",
     "shard_index": "6",
