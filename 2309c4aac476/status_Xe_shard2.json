@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "xe-server",
-  "last_update": "2026-04-22T14:57:52.867373+00:00",
+  "last_update": "2026-04-22T15:23:00.695671+00:00",
   "start_time": "2026-04-22T04:32:07.587215+00:00",
   "total_mofs": 311,
   "pressures": [
@@ -20,13 +20,13 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 27,
-      "converged": 26,
+      "completed": 28,
+      "converged": 27,
       "failed": 1
     },
     "0.5": {
-      "completed": 27,
-      "converged": 25,
+      "completed": 28,
+      "converged": 26,
       "failed": 2
     },
     "1": {
@@ -35,53 +35,53 @@
       "failed": 3
     },
     "2": {
-      "completed": 26,
+      "completed": 27,
       "converged": 20,
-      "failed": 6
+      "failed": 7
     },
     "3": {
-      "completed": 26,
+      "completed": 27,
       "converged": 18,
-      "failed": 8
+      "failed": 9
     },
     "4": {
-      "completed": 26,
+      "completed": 27,
       "converged": 16,
-      "failed": 10
+      "failed": 11
     },
     "5": {
-      "completed": 26,
+      "completed": 27,
       "converged": 16,
-      "failed": 10
+      "failed": 11
     },
     "6": {
-      "completed": 26,
+      "completed": 27,
       "converged": 16,
-      "failed": 10
+      "failed": 11
     },
     "7": {
-      "completed": 26,
+      "completed": 27,
       "converged": 16,
-      "failed": 10
+      "failed": 11
     },
     "8": {
-      "completed": 26,
+      "completed": 27,
       "converged": 16,
-      "failed": 10
+      "failed": 11
     },
     "9": {
-      "completed": 26,
+      "completed": 27,
       "converged": 16,
-      "failed": 10
+      "failed": 11
     },
     "10": {
-      "completed": 26,
+      "completed": 27,
       "converged": 16,
-      "failed": 10
+      "failed": 11
     }
   },
-  "current_mof": "qmof-4d978c3",
-  "current_pressure": 1.0,
+  "current_mof": "qmof-4d9a98c",
+  "current_pressure": 0.5,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe/shard_Xe_2.txt",
     "shard_index": "2",
