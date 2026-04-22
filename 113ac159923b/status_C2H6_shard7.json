@@ -1,7 +1,7 @@
 {
   "adsorbate": "C2H6",
   "server": "113ac159923b",
-  "last_update": "2026-04-22T22:29:02.760826+00:00",
+  "last_update": "2026-04-22T22:59:45.606741+00:00",
   "start_time": "2026-04-22T11:52:40.510107+00:00",
   "total_mofs": 464,
   "pressures": [
@@ -20,24 +20,24 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 325,
-      "converged": 312,
+      "completed": 326,
+      "converged": 313,
       "failed": 13
     },
     "0.5": {
-      "completed": 325,
-      "converged": 297,
+      "completed": 326,
+      "converged": 298,
       "failed": 28
     },
     "1": {
-      "completed": 325,
-      "converged": 281,
+      "completed": 326,
+      "converged": 282,
       "failed": 44
     },
     "2": {
-      "completed": 325,
+      "completed": 326,
       "converged": 259,
-      "failed": 66
+      "failed": 67
     },
     "3": {
       "completed": 325,
@@ -50,38 +50,38 @@
       "failed": 86
     },
     "5": {
-      "completed": 324,
-      "converged": 232,
+      "completed": 325,
+      "converged": 233,
       "failed": 92
     },
     "6": {
-      "completed": 324,
-      "converged": 227,
+      "completed": 325,
+      "converged": 228,
       "failed": 97
     },
     "7": {
-      "completed": 324,
-      "converged": 224,
+      "completed": 325,
+      "converged": 225,
       "failed": 100
     },
     "8": {
-      "completed": 324,
-      "converged": 219,
+      "completed": 325,
+      "converged": 220,
       "failed": 105
     },
     "9": {
-      "completed": 324,
-      "converged": 218,
+      "completed": 325,
+      "converged": 219,
       "failed": 106
     },
     "10": {
-      "completed": 324,
-      "converged": 213,
+      "completed": 325,
+      "converged": 214,
       "failed": 111
     }
   },
-  "current_mof": "qmof-f6132be",
-  "current_pressure": 4.0,
+  "current_mof": "qmof-f61d5ce",
+  "current_pressure": 2.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/C2H6/shard_C2H6_7.txt",
     "shard_index": "7",
