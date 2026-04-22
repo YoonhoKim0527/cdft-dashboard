@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "xe-server",
-  "last_update": "2026-04-22T07:59:54.260331+00:00",
+  "last_update": "2026-04-22T08:29:59.058034+00:00",
   "start_time": "2026-04-22T04:32:07.619686+00:00",
   "total_mofs": 310,
   "pressures": [
@@ -20,67 +20,67 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 6,
-      "converged": 6,
+      "completed": 10,
+      "converged": 10,
       "failed": 0
     },
     "0.5": {
-      "completed": 6,
-      "converged": 6,
+      "completed": 10,
+      "converged": 10,
       "failed": 0
     },
     "1": {
-      "completed": 6,
-      "converged": 5,
+      "completed": 10,
+      "converged": 9,
       "failed": 1
     },
     "2": {
-      "completed": 5,
-      "converged": 3,
+      "completed": 9,
+      "converged": 7,
       "failed": 2
     },
     "3": {
-      "completed": 5,
-      "converged": 3,
+      "completed": 9,
+      "converged": 7,
       "failed": 2
     },
     "4": {
-      "completed": 5,
-      "converged": 3,
+      "completed": 9,
+      "converged": 7,
       "failed": 2
     },
     "5": {
-      "completed": 5,
-      "converged": 1,
+      "completed": 9,
+      "converged": 5,
       "failed": 4
     },
     "6": {
-      "completed": 5,
-      "converged": 1,
+      "completed": 9,
+      "converged": 5,
       "failed": 4
     },
     "7": {
-      "completed": 5,
-      "converged": 1,
+      "completed": 9,
+      "converged": 5,
       "failed": 4
     },
     "8": {
-      "completed": 5,
-      "converged": 1,
+      "completed": 9,
+      "converged": 5,
       "failed": 4
     },
     "9": {
-      "completed": 5,
-      "converged": 1,
+      "completed": 9,
+      "converged": 5,
       "failed": 4
     },
     "10": {
-      "completed": 5,
-      "converged": 1,
-      "failed": 4
+      "completed": 9,
+      "converged": 4,
+      "failed": 5
     }
   },
-  "current_mof": "qmof-efc4f62",
+  "current_mof": "qmof-efec07a",
   "current_pressure": 1.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe/shard_Xe_7.txt",
