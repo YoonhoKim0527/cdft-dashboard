@@ -1,7 +1,7 @@
 {
   "adsorbate": "CH4",
   "server": "75f045f20fd0",
-  "last_update": "2026-04-22T18:29:43.518965+00:00",
+  "last_update": "2026-04-22T18:56:47.763168+00:00",
   "start_time": "2026-04-21T11:35:55.906973+00:00",
   "total_mofs": 360,
   "pressures": [
@@ -47,59 +47,59 @@
       "failed": 0
     },
     "2": {
-      "completed": 126,
-      "converged": 126,
+      "completed": 127,
+      "converged": 127,
       "failed": 0
     },
     "3": {
-      "completed": 126,
-      "converged": 126,
+      "completed": 127,
+      "converged": 127,
       "failed": 0
     },
     "4": {
-      "completed": 126,
-      "converged": 126,
+      "completed": 127,
+      "converged": 127,
       "failed": 0
     },
     "5": {
-      "completed": 126,
-      "converged": 126,
+      "completed": 127,
+      "converged": 127,
       "failed": 0
     },
     "5.8": {
-      "completed": 126,
-      "converged": 124,
+      "completed": 127,
+      "converged": 125,
       "failed": 2
     },
     "6": {
-      "completed": 126,
-      "converged": 125,
+      "completed": 127,
+      "converged": 126,
       "failed": 1
     },
     "7": {
-      "completed": 126,
-      "converged": 125,
+      "completed": 127,
+      "converged": 126,
       "failed": 1
     },
     "8": {
-      "completed": 126,
-      "converged": 125,
+      "completed": 127,
+      "converged": 126,
       "failed": 1
     },
     "9": {
-      "completed": 126,
+      "completed": 127,
       "converged": 124,
-      "failed": 2
+      "failed": 3
     },
     "10": {
-      "completed": 126,
+      "completed": 127,
       "converged": 125,
-      "failed": 1
+      "failed": 2
     },
     "15": {
-      "completed": 126,
+      "completed": 127,
       "converged": 122,
-      "failed": 4
+      "failed": 5
     },
     "20": {
       "completed": 126,
@@ -153,7 +153,7 @@
     }
   },
   "current_mof": "qmof-eca76af",
-  "current_pressure": 1.0,
+  "current_pressure": 15.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/CH4/shard_CH4_7.txt",
     "shard_index": "7",
