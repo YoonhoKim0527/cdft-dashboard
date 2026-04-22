@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "xe-server",
-  "last_update": "2026-04-22T17:24:54.501217+00:00",
+  "last_update": "2026-04-22T17:58:21.785410+00:00",
   "start_time": "2026-04-22T04:32:07.612005+00:00",
   "total_mofs": 310,
   "pressures": [
@@ -25,34 +25,34 @@
       "failed": 1
     },
     "0.5": {
-      "completed": 21,
-      "converged": 18,
+      "completed": 22,
+      "converged": 19,
       "failed": 3
     },
     "1": {
-      "completed": 21,
-      "converged": 16,
+      "completed": 22,
+      "converged": 17,
       "failed": 5
     },
     "2": {
-      "completed": 21,
+      "completed": 22,
       "converged": 15,
-      "failed": 6
+      "failed": 7
     },
     "3": {
-      "completed": 21,
+      "completed": 22,
       "converged": 13,
-      "failed": 8
+      "failed": 9
     },
     "4": {
-      "completed": 21,
+      "completed": 22,
       "converged": 11,
-      "failed": 10
+      "failed": 11
     },
     "5": {
-      "completed": 21,
+      "completed": 22,
       "converged": 12,
-      "failed": 9
+      "failed": 10
     },
     "6": {
       "completed": 21,
@@ -81,7 +81,7 @@
     }
   },
   "current_mof": "qmof-ce1aea4",
-  "current_pressure": 0.1,
+  "current_pressure": 5.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe/shard_Xe_6.txt",
     "shard_index": "6",
