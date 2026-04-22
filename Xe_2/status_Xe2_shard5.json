@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "Xe_2",
-  "last_update": "2026-04-22T05:30:09.682456+00:00",
+  "last_update": "2026-04-22T06:00:16.339762+00:00",
   "start_time": "2026-04-22T04:31:50.386340+00:00",
   "total_mofs": 208,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 8,
-      "converged": 8,
+      "completed": 9,
+      "converged": 9,
       "failed": 0
     },
     "0.5": {
-      "completed": 8,
-      "converged": 8,
+      "completed": 9,
+      "converged": 9,
       "failed": 0
     },
     "1": {
-      "completed": 8,
-      "converged": 8,
+      "completed": 9,
+      "converged": 9,
       "failed": 0
     },
     "2": {
-      "completed": 8,
+      "completed": 9,
       "converged": 8,
-      "failed": 0
+      "failed": 1
     },
     "3": {
-      "completed": 8,
+      "completed": 9,
       "converged": 8,
-      "failed": 0
+      "failed": 1
     },
     "4": {
-      "completed": 8,
+      "completed": 9,
       "converged": 7,
-      "failed": 1
+      "failed": 2
     },
     "5": {
-      "completed": 8,
+      "completed": 9,
       "converged": 7,
-      "failed": 1
+      "failed": 2
     },
     "6": {
-      "completed": 8,
+      "completed": 9,
       "converged": 7,
-      "failed": 1
+      "failed": 2
     },
     "7": {
-      "completed": 8,
+      "completed": 9,
       "converged": 7,
-      "failed": 1
+      "failed": 2
     },
     "8": {
-      "completed": 8,
+      "completed": 9,
       "converged": 7,
-      "failed": 1
+      "failed": 2
     },
     "9": {
-      "completed": 8,
+      "completed": 9,
       "converged": 6,
-      "failed": 2
+      "failed": 3
     },
     "10": {
-      "completed": 7,
-      "converged": 5,
-      "failed": 2
+      "completed": 9,
+      "converged": 6,
+      "failed": 3
     }
   },
-  "current_mof": "qmof-b4f938f",
-  "current_pressure": 9.0,
+  "current_mof": "qmof-b527d66",
+  "current_pressure": 0.1,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe_rear/shard_Xe_5.txt",
     "shard_index": "5",
