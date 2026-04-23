@@ -1,7 +1,7 @@
 {
   "adsorbate": "CH4",
   "server": "4450141c58f4",
-  "last_update": "2026-04-23T12:29:59.920156+00:00",
+  "last_update": "2026-04-23T12:58:11.783257+00:00",
   "start_time": "2026-04-21T11:42:49.855151+00:00",
   "total_mofs": 187,
   "pressures": [
@@ -67,19 +67,19 @@
       "failed": 5
     },
     "5.8": {
-      "completed": 137,
+      "completed": 138,
       "converged": 133,
-      "failed": 4
+      "failed": 5
     },
     "6": {
-      "completed": 137,
+      "completed": 138,
       "converged": 133,
-      "failed": 4
+      "failed": 5
     },
     "7": {
-      "completed": 137,
+      "completed": 138,
       "converged": 133,
-      "failed": 4
+      "failed": 5
     },
     "8": {
       "completed": 137,
@@ -153,7 +153,7 @@
     }
   },
   "current_mof": "qmof-9af4bae",
-  "current_pressure": 5.0,
+  "current_pressure": 7.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/CH4/shard_CH4_4.txt",
     "shard_index": "4",
