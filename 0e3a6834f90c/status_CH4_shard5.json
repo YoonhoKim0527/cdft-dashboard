@@ -1,7 +1,7 @@
 {
   "adsorbate": "CH4",
   "server": "0e3a6834f90c",
-  "last_update": "2026-04-23T11:59:43.988650+00:00",
+  "last_update": "2026-04-23T12:30:16.661990+00:00",
   "start_time": "2026-04-23T08:44:46.168670+00:00",
   "total_mofs": 70,
   "pressures": [
@@ -32,128 +32,128 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 25,
-      "converged": 25,
+      "completed": 27,
+      "converged": 27,
       "failed": 0
     },
     "0.5": {
-      "completed": 25,
-      "converged": 25,
+      "completed": 27,
+      "converged": 27,
       "failed": 0
     },
     "1": {
-      "completed": 25,
-      "converged": 25,
+      "completed": 27,
+      "converged": 27,
       "failed": 0
     },
     "2": {
-      "completed": 25,
-      "converged": 25,
+      "completed": 27,
+      "converged": 27,
       "failed": 0
     },
     "3": {
-      "completed": 25,
-      "converged": 25,
+      "completed": 27,
+      "converged": 27,
       "failed": 0
     },
     "4": {
-      "completed": 25,
-      "converged": 25,
+      "completed": 27,
+      "converged": 27,
       "failed": 0
     },
     "5": {
-      "completed": 25,
-      "converged": 25,
+      "completed": 27,
+      "converged": 27,
       "failed": 0
     },
     "5.8": {
-      "completed": 24,
-      "converged": 24,
+      "completed": 27,
+      "converged": 27,
       "failed": 0
     },
     "6": {
-      "completed": 24,
-      "converged": 24,
+      "completed": 27,
+      "converged": 27,
       "failed": 0
     },
     "7": {
-      "completed": 24,
-      "converged": 24,
+      "completed": 26,
+      "converged": 26,
       "failed": 0
     },
     "8": {
-      "completed": 24,
-      "converged": 24,
-      "failed": 0
+      "completed": 26,
+      "converged": 25,
+      "failed": 1
     },
     "9": {
-      "completed": 24,
-      "converged": 24,
-      "failed": 0
+      "completed": 26,
+      "converged": 25,
+      "failed": 1
     },
     "10": {
-      "completed": 24,
-      "converged": 24,
-      "failed": 0
+      "completed": 26,
+      "converged": 25,
+      "failed": 1
     },
     "15": {
-      "completed": 24,
-      "converged": 24,
-      "failed": 0
+      "completed": 26,
+      "converged": 25,
+      "failed": 1
     },
     "20": {
-      "completed": 24,
-      "converged": 24,
-      "failed": 0
+      "completed": 26,
+      "converged": 25,
+      "failed": 1
     },
     "25": {
-      "completed": 24,
-      "converged": 24,
-      "failed": 0
+      "completed": 26,
+      "converged": 25,
+      "failed": 1
     },
     "30": {
-      "completed": 24,
-      "converged": 24,
-      "failed": 0
+      "completed": 26,
+      "converged": 25,
+      "failed": 1
     },
     "35": {
-      "completed": 24,
-      "converged": 23,
-      "failed": 1
+      "completed": 26,
+      "converged": 24,
+      "failed": 2
     },
     "40": {
-      "completed": 24,
-      "converged": 23,
-      "failed": 1
+      "completed": 26,
+      "converged": 24,
+      "failed": 2
     },
     "45": {
-      "completed": 24,
-      "converged": 22,
-      "failed": 2
-    },
-    "50": {
-      "completed": 24,
-      "converged": 22,
-      "failed": 2
-    },
-    "55": {
-      "completed": 24,
-      "converged": 22,
-      "failed": 2
-    },
-    "60": {
-      "completed": 24,
-      "converged": 21,
+      "completed": 26,
+      "converged": 23,
       "failed": 3
     },
-    "65": {
-      "completed": 24,
-      "converged": 20,
+    "50": {
+      "completed": 26,
+      "converged": 23,
+      "failed": 3
+    },
+    "55": {
+      "completed": 26,
+      "converged": 23,
+      "failed": 3
+    },
+    "60": {
+      "completed": 26,
+      "converged": 22,
       "failed": 4
+    },
+    "65": {
+      "completed": 26,
+      "converged": 21,
+      "failed": 5
     }
   },
-  "current_mof": "qmof-b2a0c99",
-  "current_pressure": 5.0,
+  "current_mof": "qmof-b2c1954",
+  "current_pressure": 6.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/CH4/shard_CH4_5.txt",
     "shard_index": "5",
