@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "Xe_retry",
-  "last_update": "2026-04-23T18:56:30.223633+00:00",
+  "last_update": "2026-04-23T19:29:39.510968+00:00",
   "start_time": "2026-04-23T10:51:30.650178+00:00",
   "total_mofs": 138,
   "pressures": [
@@ -20,8 +20,8 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 9,
-      "converged": 9,
+      "completed": 10,
+      "converged": 10,
       "failed": 0
     },
     "0.5": {
@@ -30,58 +30,58 @@
       "failed": 1
     },
     "1": {
-      "completed": 8,
-      "converged": 7,
+      "completed": 9,
+      "converged": 8,
       "failed": 1
     },
     "2": {
-      "completed": 8,
-      "converged": 6,
+      "completed": 9,
+      "converged": 7,
       "failed": 2
     },
     "3": {
-      "completed": 8,
-      "converged": 6,
+      "completed": 9,
+      "converged": 7,
       "failed": 2
     },
     "4": {
-      "completed": 8,
-      "converged": 6,
+      "completed": 9,
+      "converged": 7,
       "failed": 2
     },
     "5": {
-      "completed": 8,
-      "converged": 5,
+      "completed": 9,
+      "converged": 6,
       "failed": 3
     },
     "6": {
-      "completed": 8,
-      "converged": 4,
+      "completed": 9,
+      "converged": 5,
       "failed": 4
     },
     "7": {
-      "completed": 8,
-      "converged": 5,
+      "completed": 9,
+      "converged": 6,
       "failed": 3
     },
     "8": {
-      "completed": 8,
-      "converged": 5,
+      "completed": 9,
+      "converged": 6,
       "failed": 3
     },
     "9": {
-      "completed": 8,
-      "converged": 5,
+      "completed": 9,
+      "converged": 6,
       "failed": 3
     },
     "10": {
-      "completed": 8,
-      "converged": 5,
+      "completed": 9,
+      "converged": 6,
       "failed": 3
     }
   },
-  "current_mof": "qmof-bedf07c",
-  "current_pressure": 0.5,
+  "current_mof": "qmof-f3922f0",
+  "current_pressure": 0.1,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe_retry/shard_Xe_retry_0.txt",
     "shard_index": "0",
