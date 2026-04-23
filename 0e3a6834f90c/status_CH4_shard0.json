@@ -1,7 +1,7 @@
 {
   "adsorbate": "CH4",
   "server": "0e3a6834f90c",
-  "last_update": "2026-04-23T19:00:10.749424+00:00",
+  "last_update": "2026-04-23T19:11:23.842915+00:00",
   "start_time": "2026-04-23T08:44:46.187093+00:00",
   "total_mofs": 70,
   "pressures": [
@@ -97,63 +97,63 @@
       "failed": 4
     },
     "15": {
-      "completed": 69,
+      "completed": 70,
       "converged": 66,
-      "failed": 3
-    },
-    "20": {
-      "completed": 69,
-      "converged": 65,
       "failed": 4
     },
+    "20": {
+      "completed": 70,
+      "converged": 65,
+      "failed": 5
+    },
     "25": {
-      "completed": 69,
+      "completed": 70,
       "converged": 63,
-      "failed": 6
+      "failed": 7
     },
     "30": {
-      "completed": 69,
+      "completed": 70,
       "converged": 62,
-      "failed": 7
+      "failed": 8
     },
     "35": {
-      "completed": 69,
+      "completed": 70,
       "converged": 62,
-      "failed": 7
+      "failed": 8
     },
     "40": {
-      "completed": 69,
+      "completed": 70,
       "converged": 61,
-      "failed": 8
-    },
-    "45": {
-      "completed": 69,
-      "converged": 60,
       "failed": 9
     },
-    "50": {
-      "completed": 69,
-      "converged": 61,
-      "failed": 8
-    },
-    "55": {
-      "completed": 69,
-      "converged": 59,
+    "45": {
+      "completed": 70,
+      "converged": 60,
       "failed": 10
     },
-    "60": {
-      "completed": 69,
-      "converged": 58,
+    "50": {
+      "completed": 70,
+      "converged": 61,
+      "failed": 9
+    },
+    "55": {
+      "completed": 70,
+      "converged": 59,
       "failed": 11
     },
+    "60": {
+      "completed": 70,
+      "converged": 58,
+      "failed": 12
+    },
     "65": {
-      "completed": 69,
+      "completed": 70,
       "converged": 56,
-      "failed": 13
+      "failed": 14
     }
   },
   "current_mof": "qmof-2e1bdda",
-  "current_pressure": 10.0,
+  "current_pressure": 65.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/CH4/shard_CH4_0.txt",
     "shard_index": "0",
