@@ -1,7 +1,7 @@
 {
   "adsorbate": "C3H8",
   "server": "c4ed440939ed",
-  "last_update": "2026-04-23T16:29:59.728471+00:00",
+  "last_update": "2026-04-23T16:54:43.742898+00:00",
   "start_time": "2026-04-23T12:39:38.226464+00:00",
   "total_mofs": 322,
   "pressures": [
@@ -20,18 +20,18 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 5,
+      "completed": 6,
       "converged": 5,
-      "failed": 0
+      "failed": 1
     },
     "0.5": {
-      "completed": 5,
-      "converged": 4,
+      "completed": 6,
+      "converged": 5,
       "failed": 1
     },
     "1": {
-      "completed": 5,
-      "converged": 4,
+      "completed": 6,
+      "converged": 5,
       "failed": 1
     },
     "2": {
@@ -40,48 +40,48 @@
       "failed": 2
     },
     "3": {
-      "completed": 4,
-      "converged": 3,
+      "completed": 5,
+      "converged": 4,
       "failed": 1
     },
     "4": {
-      "completed": 4,
-      "converged": 2,
+      "completed": 5,
+      "converged": 3,
       "failed": 2
     },
     "5": {
-      "completed": 4,
-      "converged": 2,
+      "completed": 5,
+      "converged": 3,
       "failed": 2
     },
     "6": {
-      "completed": 4,
-      "converged": 2,
+      "completed": 5,
+      "converged": 3,
       "failed": 2
     },
     "7": {
-      "completed": 4,
-      "converged": 2,
+      "completed": 5,
+      "converged": 3,
       "failed": 2
     },
     "8": {
-      "completed": 4,
-      "converged": 2,
+      "completed": 5,
+      "converged": 3,
       "failed": 2
     },
     "9": {
-      "completed": 4,
-      "converged": 2,
+      "completed": 5,
+      "converged": 3,
       "failed": 2
     },
     "10": {
-      "completed": 4,
-      "converged": 2,
+      "completed": 5,
+      "converged": 3,
       "failed": 2
     }
   },
-  "current_mof": "qmof-7fc8f2f",
-  "current_pressure": 2.0,
+  "current_mof": "qmof-7fccc1f",
+  "current_pressure": 1.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/C3H8/shard_C3H8_4_retry.txt",
     "shard_index": "4",
