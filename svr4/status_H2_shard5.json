@@ -1,7 +1,7 @@
 {
   "adsorbate": "H2",
   "server": "svr4",
-  "last_update": "2026-04-23T13:59:59.649324+00:00",
+  "last_update": "2026-04-23T14:30:00.329389+00:00",
   "start_time": "2026-04-19T16:01:45.475007+00:00",
   "total_mofs": 1443,
   "pressures": [
@@ -38,158 +38,158 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 1268,
-      "converged": 1268,
+      "completed": 1275,
+      "converged": 1275,
       "failed": 0
     },
     "0.5": {
-      "completed": 1268,
-      "converged": 1263,
+      "completed": 1275,
+      "converged": 1270,
       "failed": 5
     },
     "1": {
-      "completed": 1268,
-      "converged": 1262,
+      "completed": 1275,
+      "converged": 1269,
       "failed": 6
     },
     "2": {
-      "completed": 1268,
-      "converged": 1260,
+      "completed": 1275,
+      "converged": 1267,
       "failed": 8
     },
     "3": {
-      "completed": 1268,
-      "converged": 1259,
+      "completed": 1275,
+      "converged": 1266,
       "failed": 9
     },
     "4": {
-      "completed": 1268,
-      "converged": 1260,
+      "completed": 1275,
+      "converged": 1267,
       "failed": 8
     },
     "5": {
-      "completed": 1268,
-      "converged": 1259,
+      "completed": 1275,
+      "converged": 1266,
       "failed": 9
     },
     "6": {
-      "completed": 1268,
-      "converged": 1258,
+      "completed": 1275,
+      "converged": 1265,
       "failed": 10
     },
     "7": {
-      "completed": 1268,
-      "converged": 1259,
+      "completed": 1275,
+      "converged": 1266,
       "failed": 9
     },
     "8": {
-      "completed": 1268,
-      "converged": 1257,
+      "completed": 1275,
+      "converged": 1264,
       "failed": 11
     },
     "9": {
-      "completed": 1268,
-      "converged": 1257,
+      "completed": 1275,
+      "converged": 1264,
       "failed": 11
     },
     "10": {
-      "completed": 1268,
-      "converged": 1255,
+      "completed": 1274,
+      "converged": 1261,
       "failed": 13
     },
     "15": {
-      "completed": 1268,
-      "converged": 1255,
+      "completed": 1274,
+      "converged": 1261,
       "failed": 13
     },
     "20": {
-      "completed": 1268,
-      "converged": 1255,
+      "completed": 1274,
+      "converged": 1261,
       "failed": 13
     },
     "25": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "30": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "35": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "40": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "45": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "50": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "55": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "60": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "65": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "70": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "75": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "80": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "85": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "90": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "95": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     },
     "100": {
-      "completed": 1267,
-      "converged": 1252,
+      "completed": 1274,
+      "converged": 1259,
       "failed": 15
     }
   },
-  "current_mof": "qmof-7833268",
-  "current_pressure": 20.0,
+  "current_mof": "qmof-78b28bd",
+  "current_pressure": 9.0,
   "mof_set_info": {
     "shard_file": "/home/yoonho/exp036_multi_gas_work/shards/H2/shard_H2_1.txt",
     "shard_index": "5",
