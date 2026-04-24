@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "Xe_retry",
-  "last_update": "2026-04-24T02:28:54.885784+00:00",
+  "last_update": "2026-04-24T02:58:24.219917+00:00",
   "start_time": "2026-04-23T10:51:30.653517+00:00",
   "total_mofs": 138,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 17,
-      "converged": 17,
-      "failed": 0
+      "completed": 19,
+      "converged": 18,
+      "failed": 1
     },
     "0.5": {
-      "completed": 17,
-      "converged": 17,
-      "failed": 0
+      "completed": 19,
+      "converged": 18,
+      "failed": 1
     },
     "1": {
-      "completed": 17,
+      "completed": 18,
       "converged": 15,
-      "failed": 2
+      "failed": 3
     },
     "2": {
-      "completed": 17,
+      "completed": 18,
       "converged": 15,
-      "failed": 2
+      "failed": 3
     },
     "3": {
-      "completed": 17,
+      "completed": 18,
       "converged": 15,
-      "failed": 2
+      "failed": 3
     },
     "4": {
-      "completed": 17,
+      "completed": 18,
       "converged": 14,
-      "failed": 3
+      "failed": 4
     },
     "5": {
-      "completed": 17,
+      "completed": 18,
       "converged": 14,
-      "failed": 3
+      "failed": 4
     },
     "6": {
-      "completed": 17,
+      "completed": 18,
       "converged": 14,
-      "failed": 3
+      "failed": 4
     },
     "7": {
-      "completed": 17,
+      "completed": 18,
       "converged": 14,
-      "failed": 3
+      "failed": 4
     },
     "8": {
-      "completed": 17,
+      "completed": 18,
       "converged": 12,
-      "failed": 5
+      "failed": 6
     },
     "9": {
-      "completed": 17,
+      "completed": 18,
       "converged": 12,
-      "failed": 5
+      "failed": 6
     },
     "10": {
-      "completed": 17,
+      "completed": 18,
       "converged": 12,
-      "failed": 5
+      "failed": 6
     }
   },
-  "current_mof": "qmof-9e2ec4d",
-  "current_pressure": 0.1,
+  "current_mof": "qmof-bbfd88d",
+  "current_pressure": 0.5,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe_retry/shard_Xe_retry_1.txt",
     "shard_index": "1",
