@@ -1,7 +1,7 @@
 {
   "adsorbate": "C3H8",
   "server": "c4ed440939ed",
-  "last_update": "2026-04-24T05:59:26.200093+00:00",
+  "last_update": "2026-04-24T06:29:37.178520+00:00",
   "start_time": "2026-04-23T12:39:38.236261+00:00",
   "total_mofs": 335,
   "pressures": [
@@ -20,18 +20,18 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 22,
-      "converged": 15,
+      "completed": 23,
+      "converged": 16,
       "failed": 7
     },
     "0.5": {
-      "completed": 22,
-      "converged": 14,
+      "completed": 23,
+      "converged": 15,
       "failed": 8
     },
     "1": {
-      "completed": 22,
-      "converged": 10,
+      "completed": 23,
+      "converged": 11,
       "failed": 12
     },
     "2": {
@@ -40,48 +40,48 @@
       "failed": 15
     },
     "3": {
-      "completed": 21,
+      "completed": 22,
       "converged": 6,
-      "failed": 15
+      "failed": 16
     },
     "4": {
-      "completed": 21,
+      "completed": 22,
       "converged": 6,
-      "failed": 15
+      "failed": 16
     },
     "5": {
-      "completed": 21,
+      "completed": 22,
       "converged": 6,
-      "failed": 15
+      "failed": 16
     },
     "6": {
-      "completed": 21,
+      "completed": 22,
       "converged": 5,
-      "failed": 16
+      "failed": 17
     },
     "7": {
-      "completed": 21,
+      "completed": 22,
       "converged": 4,
-      "failed": 17
+      "failed": 18
     },
     "8": {
-      "completed": 21,
+      "completed": 22,
       "converged": 5,
-      "failed": 16
+      "failed": 17
     },
     "9": {
-      "completed": 21,
+      "completed": 22,
       "converged": 5,
-      "failed": 16
+      "failed": 17
     },
     "10": {
-      "completed": 21,
+      "completed": 22,
       "converged": 4,
-      "failed": 17
+      "failed": 18
     }
   },
-  "current_mof": "qmof-a2f8325",
-  "current_pressure": 2.0,
+  "current_mof": "qmof-a2f938d",
+  "current_pressure": 1.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/C3H8/shard_C3H8_5_retry.txt",
     "shard_index": "5",
