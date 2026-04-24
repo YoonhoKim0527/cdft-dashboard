@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "Xe_retry",
-  "last_update": "2026-04-24T10:28:37.571758+00:00",
+  "last_update": "2026-04-24T10:59:13.756590+00:00",
   "start_time": "2026-04-23T10:51:30.659171+00:00",
   "total_mofs": 137,
   "pressures": [
@@ -20,18 +20,18 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 27,
+      "completed": 28,
       "converged": 26,
-      "failed": 1
+      "failed": 2
     },
     "0.5": {
-      "completed": 27,
-      "converged": 27,
+      "completed": 28,
+      "converged": 28,
       "failed": 0
     },
     "1": {
-      "completed": 27,
-      "converged": 26,
+      "completed": 28,
+      "converged": 27,
       "failed": 1
     },
     "2": {
@@ -40,48 +40,48 @@
       "failed": 2
     },
     "3": {
-      "completed": 26,
-      "converged": 22,
+      "completed": 27,
+      "converged": 23,
       "failed": 4
     },
     "4": {
-      "completed": 26,
-      "converged": 22,
+      "completed": 27,
+      "converged": 23,
       "failed": 4
     },
     "5": {
-      "completed": 26,
-      "converged": 22,
+      "completed": 27,
+      "converged": 23,
       "failed": 4
     },
     "6": {
-      "completed": 26,
-      "converged": 21,
+      "completed": 27,
+      "converged": 22,
       "failed": 5
     },
     "7": {
-      "completed": 26,
-      "converged": 19,
+      "completed": 27,
+      "converged": 20,
       "failed": 7
     },
     "8": {
-      "completed": 26,
-      "converged": 20,
+      "completed": 27,
+      "converged": 21,
       "failed": 6
     },
     "9": {
-      "completed": 26,
-      "converged": 20,
+      "completed": 27,
+      "converged": 21,
       "failed": 6
     },
     "10": {
-      "completed": 26,
-      "converged": 20,
+      "completed": 27,
+      "converged": 21,
       "failed": 6
     }
   },
-  "current_mof": "qmof-9375de3",
-  "current_pressure": 2.0,
+  "current_mof": "qmof-b5f02ff",
+  "current_pressure": 1.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe_retry/shard_Xe_retry_7.txt",
     "shard_index": "7",
