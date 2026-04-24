@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "Xe_retry",
-  "last_update": "2026-04-24T21:25:34.942606+00:00",
+  "last_update": "2026-04-24T21:52:40.038010+00:00",
   "start_time": "2026-04-23T10:51:30.650084+00:00",
   "total_mofs": 137,
   "pressures": [
@@ -20,8 +20,8 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 38,
-      "converged": 37,
+      "completed": 39,
+      "converged": 38,
       "failed": 1
     },
     "0.5": {
@@ -45,43 +45,43 @@
       "failed": 4
     },
     "4": {
-      "completed": 37,
-      "converged": 30,
+      "completed": 38,
+      "converged": 31,
       "failed": 7
     },
     "5": {
-      "completed": 37,
+      "completed": 38,
       "converged": 31,
-      "failed": 6
+      "failed": 7
     },
     "6": {
-      "completed": 37,
+      "completed": 38,
       "converged": 30,
-      "failed": 7
+      "failed": 8
     },
     "7": {
-      "completed": 37,
+      "completed": 38,
       "converged": 30,
-      "failed": 7
+      "failed": 8
     },
     "8": {
-      "completed": 37,
+      "completed": 38,
       "converged": 30,
-      "failed": 7
+      "failed": 8
     },
     "9": {
-      "completed": 37,
+      "completed": 38,
       "converged": 29,
-      "failed": 8
+      "failed": 9
     },
     "10": {
-      "completed": 37,
+      "completed": 38,
       "converged": 29,
-      "failed": 8
+      "failed": 9
     }
   },
-  "current_mof": "qmof-f59ae17",
-  "current_pressure": 3.0,
+  "current_mof": "qmof-bdec829",
+  "current_pressure": 0.1,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe_retry/shard_Xe_retry_3.txt",
     "shard_index": "3",
