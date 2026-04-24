@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "Xe_retry",
-  "last_update": "2026-04-24T16:26:10.302430+00:00",
+  "last_update": "2026-04-24T17:00:03.659910+00:00",
   "start_time": "2026-04-23T10:51:30.650178+00:00",
   "total_mofs": 138,
   "pressures": [
@@ -20,23 +20,23 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 30,
-      "converged": 30,
+      "completed": 31,
+      "converged": 31,
       "failed": 0
     },
     "0.5": {
-      "completed": 30,
-      "converged": 28,
+      "completed": 31,
+      "converged": 29,
       "failed": 2
     },
     "1": {
-      "completed": 30,
-      "converged": 26,
+      "completed": 31,
+      "converged": 27,
       "failed": 4
     },
     "2": {
-      "completed": 30,
-      "converged": 24,
+      "completed": 31,
+      "converged": 25,
       "failed": 6
     },
     "3": {
@@ -75,13 +75,13 @@
       "failed": 9
     },
     "10": {
-      "completed": 29,
-      "converged": 21,
+      "completed": 30,
+      "converged": 22,
       "failed": 8
     }
   },
-  "current_mof": "qmof-b4192d1",
-  "current_pressure": 9.0,
+  "current_mof": "qmof-3477ecf",
+  "current_pressure": 2.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe_retry/shard_Xe_retry_0.txt",
     "shard_index": "0",
