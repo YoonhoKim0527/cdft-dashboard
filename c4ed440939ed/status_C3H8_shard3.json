@@ -1,7 +1,7 @@
 {
   "adsorbate": "C3H8",
   "server": "c4ed440939ed",
-  "last_update": "2026-04-24T17:26:11.261245+00:00",
+  "last_update": "2026-04-24T17:58:51.483809+00:00",
   "start_time": "2026-04-23T12:39:38.236404+00:00",
   "total_mofs": 322,
   "pressures": [
@@ -20,23 +20,23 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 35,
-      "converged": 23,
+      "completed": 36,
+      "converged": 24,
       "failed": 12
     },
     "0.5": {
-      "completed": 35,
-      "converged": 24,
+      "completed": 36,
+      "converged": 25,
       "failed": 11
     },
     "1": {
-      "completed": 35,
-      "converged": 21,
+      "completed": 36,
+      "converged": 22,
       "failed": 14
     },
     "2": {
-      "completed": 35,
-      "converged": 20,
+      "completed": 36,
+      "converged": 21,
       "failed": 15
     },
     "3": {
@@ -70,18 +70,18 @@
       "failed": 16
     },
     "9": {
-      "completed": 34,
+      "completed": 35,
       "converged": 20,
-      "failed": 14
+      "failed": 15
     },
     "10": {
-      "completed": 34,
+      "completed": 35,
       "converged": 20,
-      "failed": 14
+      "failed": 15
     }
   },
-  "current_mof": "qmof-6236874",
-  "current_pressure": 8.0,
+  "current_mof": "qmof-62539f9",
+  "current_pressure": 2.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/C3H8/shard_C3H8_3_retry.txt",
     "shard_index": "3",
