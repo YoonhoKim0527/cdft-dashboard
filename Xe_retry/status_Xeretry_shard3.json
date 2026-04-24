@@ -1,7 +1,7 @@
 {
   "adsorbate": "Xe",
   "server": "Xe_retry",
-  "last_update": "2026-04-24T18:52:08.685488+00:00",
+  "last_update": "2026-04-24T19:17:53.481303+00:00",
   "start_time": "2026-04-23T10:51:30.650084+00:00",
   "total_mofs": 137,
   "pressures": [
@@ -20,8 +20,8 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 35,
-      "converged": 35,
+      "completed": 36,
+      "converged": 36,
       "failed": 0
     },
     "0.5": {
@@ -30,58 +30,58 @@
       "failed": 0
     },
     "1": {
-      "completed": 34,
-      "converged": 33,
+      "completed": 35,
+      "converged": 34,
       "failed": 1
     },
     "2": {
-      "completed": 34,
+      "completed": 35,
       "converged": 33,
-      "failed": 1
+      "failed": 2
     },
     "3": {
-      "completed": 34,
+      "completed": 35,
       "converged": 31,
-      "failed": 3
+      "failed": 4
     },
     "4": {
-      "completed": 34,
+      "completed": 35,
       "converged": 28,
-      "failed": 6
+      "failed": 7
     },
     "5": {
-      "completed": 34,
+      "completed": 35,
       "converged": 29,
-      "failed": 5
+      "failed": 6
     },
     "6": {
-      "completed": 34,
+      "completed": 35,
       "converged": 28,
-      "failed": 6
+      "failed": 7
     },
     "7": {
-      "completed": 34,
+      "completed": 35,
       "converged": 28,
-      "failed": 6
+      "failed": 7
     },
     "8": {
-      "completed": 34,
+      "completed": 35,
       "converged": 28,
-      "failed": 6
+      "failed": 7
     },
     "9": {
-      "completed": 34,
+      "completed": 35,
       "converged": 27,
-      "failed": 7
+      "failed": 8
     },
     "10": {
-      "completed": 34,
+      "completed": 35,
       "converged": 27,
-      "failed": 7
+      "failed": 8
     }
   },
-  "current_mof": "qmof-18e2d2f",
-  "current_pressure": 0.5,
+  "current_mof": "qmof-77442e8",
+  "current_pressure": 0.1,
   "mof_set_info": {
     "shard_file": "/workspace/shards/Xe_retry/shard_Xe_retry_3.txt",
     "shard_index": "3",
