@@ -1,7 +1,7 @@
 {
   "adsorbate": "C3H8",
   "server": "c4ed440939ed",
-  "last_update": "2026-04-25T14:28:58.500659+00:00",
+  "last_update": "2026-04-25T14:56:23.676702+00:00",
   "start_time": "2026-04-23T12:39:38.232724+00:00",
   "total_mofs": 306,
   "pressures": [
@@ -20,18 +20,18 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 66,
-      "converged": 48,
+      "completed": 67,
+      "converged": 49,
       "failed": 18
     },
     "0.5": {
-      "completed": 66,
-      "converged": 49,
+      "completed": 67,
+      "converged": 50,
       "failed": 17
     },
     "1": {
-      "completed": 66,
-      "converged": 43,
+      "completed": 67,
+      "converged": 44,
       "failed": 23
     },
     "2": {
@@ -40,48 +40,48 @@
       "failed": 33
     },
     "3": {
-      "completed": 65,
-      "converged": 29,
+      "completed": 66,
+      "converged": 30,
       "failed": 36
     },
     "4": {
-      "completed": 65,
-      "converged": 28,
+      "completed": 66,
+      "converged": 29,
       "failed": 37
     },
     "5": {
-      "completed": 65,
-      "converged": 28,
+      "completed": 66,
+      "converged": 29,
       "failed": 37
     },
     "6": {
-      "completed": 65,
+      "completed": 66,
       "converged": 26,
-      "failed": 39
+      "failed": 40
     },
     "7": {
-      "completed": 65,
-      "converged": 22,
+      "completed": 66,
+      "converged": 23,
       "failed": 43
     },
     "8": {
-      "completed": 65,
-      "converged": 21,
+      "completed": 66,
+      "converged": 22,
       "failed": 44
     },
     "9": {
-      "completed": 65,
-      "converged": 21,
+      "completed": 66,
+      "converged": 22,
       "failed": 44
     },
     "10": {
-      "completed": 65,
-      "converged": 23,
+      "completed": 66,
+      "converged": 24,
       "failed": 42
     }
   },
-  "current_mof": "qmof-44f9ad0",
-  "current_pressure": 2.0,
+  "current_mof": "qmof-44fa197",
+  "current_pressure": 1.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/C3H8/shard_C3H8_2_retry.txt",
     "shard_index": "2",
