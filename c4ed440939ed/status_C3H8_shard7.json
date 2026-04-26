@@ -1,7 +1,7 @@
 {
   "adsorbate": "C3H8",
   "server": "c4ed440939ed",
-  "last_update": "2026-04-26T10:29:09.912124+00:00",
+  "last_update": "2026-04-26T10:59:30.880177+00:00",
   "start_time": "2026-04-23T12:20:40.610444+00:00",
   "total_mofs": 314,
   "pressures": [
@@ -20,68 +20,68 @@
   ],
   "per_pressure": {
     "0.1": {
-      "completed": 95,
-      "converged": 68,
+      "completed": 96,
+      "converged": 69,
       "failed": 27
     },
     "0.5": {
-      "completed": 95,
-      "converged": 65,
+      "completed": 96,
+      "converged": 66,
       "failed": 30
     },
     "1": {
-      "completed": 95,
-      "converged": 65,
+      "completed": 96,
+      "converged": 66,
       "failed": 30
     },
     "2": {
-      "completed": 95,
-      "converged": 54,
+      "completed": 96,
+      "converged": 55,
       "failed": 41
     },
     "3": {
-      "completed": 95,
-      "converged": 51,
+      "completed": 96,
+      "converged": 52,
       "failed": 44
     },
     "4": {
-      "completed": 94,
-      "converged": 48,
+      "completed": 96,
+      "converged": 50,
       "failed": 46
     },
     "5": {
-      "completed": 94,
-      "converged": 45,
+      "completed": 96,
+      "converged": 47,
       "failed": 49
     },
     "6": {
-      "completed": 94,
-      "converged": 41,
+      "completed": 95,
+      "converged": 42,
       "failed": 53
     },
     "7": {
-      "completed": 94,
-      "converged": 40,
+      "completed": 95,
+      "converged": 41,
       "failed": 54
     },
     "8": {
-      "completed": 94,
-      "converged": 39,
+      "completed": 95,
+      "converged": 40,
       "failed": 55
     },
     "9": {
-      "completed": 94,
-      "converged": 39,
+      "completed": 95,
+      "converged": 40,
       "failed": 55
     },
     "10": {
-      "completed": 94,
-      "converged": 37,
+      "completed": 95,
+      "converged": 38,
       "failed": 57
     }
   },
-  "current_mof": "qmof-ec0306c",
-  "current_pressure": 3.0,
+  "current_mof": "qmof-ec54d11",
+  "current_pressure": 5.0,
   "mof_set_info": {
     "shard_file": "/workspace/shards/C3H8/shard_C3H8_7_retry.txt",
     "shard_index": "7",
